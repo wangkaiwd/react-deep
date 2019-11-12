@@ -1,2 +1,3 @@
 const a: string = 'hello';
-console.log(a);
+// console.log(a);
+const b = 1;
