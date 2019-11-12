@@ -19,6 +19,9 @@ module.exports = {
   module: {
     rules: [
       {
+        // .: 匹配任意单个字符，想要匹配点号，需要在前面加`\`转义符(escape character)
+        // x?: 匹配前面的模式x 0或1次，这里匹配.ts或.tsx
+        // $: 匹配输入结尾。这里匹配以.ts或.tsx结尾的文件
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader'
       }
