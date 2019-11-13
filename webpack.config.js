@@ -1,5 +1,6 @@
 const path = require('path');
 const { CheckerPlugin } = require('awesome-typescript-loader');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const absPath = dir => path.resolve(__dirname, dir);
 module.exports = {
@@ -9,12 +10,13 @@ module.exports = {
     main: './index.tsx'
   },
   output: {
-    filename: '[name][contenthash:8].js',
+    filename: '[name].js',
     path: absPath('./dist'),
   },
   devtool: 'cheap-module-eval-source-map',
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    hot: true
   },
   module: {
     rules: [
@@ -31,6 +33,7 @@ module.exports = {
     new CheckerPlugin(),
     new HtmlWebpackPlugin({
       template: absPath('./public/index.html')
-    })
+    }),
+    new CleanWebpackPlugin()
   ]
 };
