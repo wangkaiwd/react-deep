@@ -13,7 +13,8 @@
       false,
       "log",
       "error"
-    ]
+    ],
+    "ordered-imports": false
   },
   "linterOptions": {
     "exclude": [
