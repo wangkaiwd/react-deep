@@ -1,5 +1,3 @@
-const path = require('path');
-const absPath = dir => path.resolve(__dirname, dir);
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.config');
 module.exports = merge(baseConfig, {
