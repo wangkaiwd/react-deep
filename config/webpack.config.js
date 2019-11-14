@@ -4,19 +4,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const absPath = dir => path.resolve(__dirname, dir);
 module.exports = {
-  context: absPath('./src'),
-  mode: 'development',
+  context: absPath('../src'),
   entry: {
     main: './index.tsx'
   },
   output: {
     filename: '[name].js',
-    path: absPath('./dist'),
-  },
-  devtool: 'cheap-module-eval-source-map',
-  devServer: {
-    contentBase: './dist',
-    hot: true
+    path: absPath('../dist'),
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js']
@@ -35,7 +29,7 @@ module.exports = {
   plugins: [
     new CheckerPlugin(),
     new HtmlWebpackPlugin({
-      template: absPath('./public/index.html')
+      template: absPath('../public/index.html')
     }),
     new CleanWebpackPlugin()
   ]
