@@ -1,8 +1,9 @@
-const path = require('path');
 const { CheckerPlugin } = require('awesome-typescript-loader');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const absPath = dir => path.resolve(__dirname, dir);
+const { resolveTsconfigPathsToAlias } = require('./helper');
+const { absPath } = require('./helper');
+console.log(resolveTsconfigPathsToAlias());
 module.exports = {
   context: absPath('../src'),
   entry: {
