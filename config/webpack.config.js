@@ -23,7 +23,21 @@ module.exports = {
         // $: 匹配输入结尾。这里匹配以.ts或.tsx结尾的文件
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader'
-      }
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              // Prefer `dart-sass`
+              implementation: require('sass'),
+            },
+          },
+        ],
+      },
     ]
   },
   plugins: [
