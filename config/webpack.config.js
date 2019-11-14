@@ -13,7 +13,10 @@ module.exports = {
     path: absPath('../dist'),
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js'],
+    alias: {
+      '@': absPath('../src')
+    }
   },
   module: {
     rules: [
@@ -34,6 +37,17 @@ module.exports = {
             options: {
               // Prefer `dart-sass`
               implementation: require('sass'),
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
             },
           },
         ],
