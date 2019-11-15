@@ -3,7 +3,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { resolveTsconfigPathsToAlias } = require('./helper');
 const { absPath } = require('./helper');
-console.log(resolveTsconfigPathsToAlias());
 module.exports = {
   context: absPath('../src'),
   entry: {
@@ -15,9 +14,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
-    alias: {
-      '@': absPath('../src')
-    }
+    alias: resolveTsconfigPathsToAlias()
   },
   module: {
     rules: [
@@ -61,5 +58,6 @@ module.exports = {
       template: absPath('../public/index.html')
     }),
     new CleanWebpackPlugin()
-  ]
+  ],
+  performance: { hints: false }
 };
