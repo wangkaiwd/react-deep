@@ -1,5 +1,4 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-
 import { CheckerPlugin } from 'awesome-typescript-loader';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import { absPath, resolveTsconfigPathsToAlias } from './helper';
@@ -26,6 +25,10 @@ const baseConfig: webpack.Configuration = {
         // $: 匹配输入结尾。这里匹配以.ts或.tsx结尾的文件
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader',
+        options: {
+          useTranspileModule: true,
+          useCache: true,
+        },
       },
       {
         test: /\.s[ac]ss$/i,
