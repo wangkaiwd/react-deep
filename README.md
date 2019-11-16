@@ -2,7 +2,9 @@
 make some ui component to dive in the usage of react
 
 ### `webpack`配置
-> 社区优秀的脚手架: [TypeScript-React-Starter](https://github.com/microsoft/TypeScript-React-Starter)
+> 社区优秀的脚手架: 
+> * [TypeScript-React-Starter](https://github.com/microsoft/TypeScript-React-Starter)
+> * [create-react-app](https://create-react-app.dev/docs/adding-typescript)
 
 1. [如果打包一个库文件](https://webpack.js.org/guides/author-libraries/) 
     * umd: 通用模块定义
