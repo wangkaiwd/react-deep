@@ -1,5 +1,6 @@
-const merge = require('webpack-merge');
-const baseConfig = require('./webpack.config');
+import merge from 'webpack-merge';
+import baseConfig from './webpack.config';
+
 module.exports = merge(baseConfig, {
   mode: 'production',
   devtool: 'cheap-module-source-map',
@@ -7,12 +8,12 @@ module.exports = merge(baseConfig, {
     react: {
       commonjs: 'react',
       amd: 'react',
-      root: 'React'
+      root: 'React',
     },
     'react-dom': {
       commonjs: 'react-dom',
       amd: 'react-dom',
-      root: 'ReactDOM'
-    }
-  }
+      root: 'ReactDOM',
+    },
+  },
 });

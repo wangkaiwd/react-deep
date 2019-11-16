@@ -1,20 +1,22 @@
-const { CheckerPlugin } = require('awesome-typescript-loader');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { resolveTsconfigPathsToAlias } = require('./helper');
-const { absPath } = require('./helper');
-module.exports = {
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+
+import { CheckerPlugin } from 'awesome-typescript-loader';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import { absPath, resolveTsconfigPathsToAlias } from './helper';
+import * as webpack from 'webpack';
+
+const baseConfig: webpack.Configuration = {
   context: absPath('../src'),
   entry: {
-    main: './index.tsx'
+    main: './index.tsx',
   },
   output: {
     filename: '[name].js',
     path: absPath('../dist'),
   },
   resolve: {
+    alias: resolveTsconfigPathsToAlias(),
     extensions: ['.ts', '.tsx', '.js'],
-    alias: resolveTsconfigPathsToAlias()
   },
   module: {
     rules: [
@@ -23,7 +25,7 @@ module.exports = {
         // x?: 匹配前面的模式x 0或1次，这里匹配.ts或.tsx
         // $: 匹配输入结尾。这里匹配以.ts或.tsx结尾的文件
         test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader'
+        loader: 'awesome-typescript-loader',
       },
       {
         test: /\.s[ac]ss$/i,
@@ -50,14 +52,15 @@ module.exports = {
           },
         ],
       },
-    ]
+    ],
   },
   plugins: [
     new CheckerPlugin(),
     new HtmlWebpackPlugin({
-      template: absPath('../public/index.html')
+      template: absPath('../public/index.html'),
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
   ],
-  performance: { hints: false }
+  performance: { hints: false },
 };
+export default baseConfig;

@@ -14,5 +14,8 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "declarationDir": "dist/typings"
-  }
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }
