@@ -3,6 +3,7 @@
     "jsx": "react",
     "target": "es5",
     "module": "commonjs",
+    "allowJs": false,
     "declaration": true,
     "strict": true,
     "baseUrl": "./src",
@@ -16,6 +17,7 @@
     "declarationDir": "dist/typings"
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/__tests__/**/*.{ts}"
   ]
 }
