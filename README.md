@@ -10,3 +10,7 @@ make some ui component to dive in the usage of react
 2. 如何将类型声明文件(`Type declaration files`)与打包文件结合
 
 3. `React`即使没有在组件中使用到也要引入:`JSX`是为`React.createElement`提供的一个语法糖，所以只要使用`JSX`就需要引入`React`
+
+4. 使用`TypeScript`书写`webpack`配置： [Configuration Languages](https://webpack.js.org/configuration/configuration-languages/#typescript)
+
+5. 字面量中的尾逗号：[trailing comma](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Trailing_commas)
