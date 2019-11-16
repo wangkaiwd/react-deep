@@ -16,3 +16,5 @@ make some ui component to dive in the usage of react
 5. 字面量中的尾逗号：[trailing comma](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Trailing_commas)
 
 6. 配置`jest`测试环境： [ts-jest](https://github.com/kulshekhar/ts-jest),之后如果遇到问题去`Google`
+
+### 函数式组件 vs 类组件
