@@ -28,6 +28,7 @@ const baseConfig: webpack.Configuration = {
         options: {
           useTranspileModule: true,
           useCache: true,
+          cacheDirectory: absPath('../node_modules/.cache/.awcache'),
         },
       },
       {
@@ -54,6 +55,10 @@ const baseConfig: webpack.Configuration = {
             },
           },
         ],
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
       },
     ],
   },
