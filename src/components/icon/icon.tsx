@@ -1,6 +1,9 @@
 import React from 'react';
 
-const Icon = () => {
+interface Props {
+  name: string;
+}
+const Icon: React.FunctionComponent<Props> = () => {
   return (
     <div>
       Icon
