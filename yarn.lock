@@ -544,6 +544,11 @@
     "@types/serve-static" "*"
     "@types/webpack" "*"
 
+"@types/webpack-env@^1.14.1":
+  version "1.14.1"
+  resolved "https://registry.npm.taobao.org/@types/webpack-env/download/@types/webpack-env-1.14.1.tgz#0d8a53f308f017c53a5ddc3d07f4d6fa76b790d7"
+  integrity sha1-DYpT8wjwF8U6Xdw9B/TW+na3kNc=
+
 "@types/webpack-merge@^4.1.5":
   version "4.1.5"
   resolved "https://registry.npm.taobao.org/@types/webpack-merge/download/@types/webpack-merge-4.1.5.tgz#265fbee4810474860d0f4c17e0107032881eed47"
