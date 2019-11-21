@@ -7,4 +7,5 @@ render(
   <Fragment>
     <Icon name="wechat"/>
     <Icon name="alipay"/>
+    <Icon name="github"/>
   </Fragment>, document.getElementById('root'));
