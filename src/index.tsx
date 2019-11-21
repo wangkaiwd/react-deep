@@ -1,5 +1,10 @@
 import { render } from 'react-dom';
 import * as React from 'react';
 import Icon from '@/components/icon/icon';
+import { Fragment } from 'react';
 
-render(<Icon name="wechat"/>, document.getElementById('root'));
+render(
+  <Fragment>
+    <Icon name="wechat"/>
+    <Icon name="alipay"/>
+  </Fragment>, document.getElementById('root'));

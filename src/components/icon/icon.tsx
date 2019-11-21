@@ -1,5 +1,6 @@
 import React from 'react';
 import '@/assets/svgs/wechat.svg';
+import '@/assets/svgs/alipay.svg';
 import './icon.scss';
 
 interface Props {
