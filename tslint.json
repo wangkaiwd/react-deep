@@ -20,7 +20,14 @@
     "object-literal-key-quotes": false,
     "jsx-wrap-multiline": false,
     "space-before-function-paren": true,
-    "no-empty": false
+    "no-empty": false,
+    "jsx-no-lambda": false,
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-operator",
+      "check-typecast"
+    ]
   },
   "linterOptions": {
     "exclude": [

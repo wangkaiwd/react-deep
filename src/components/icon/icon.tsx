@@ -2,9 +2,8 @@ import React from 'react';
 import './importAllSvgs';
 import './icon.scss';
 
-interface Props {
+interface Props extends React.SVGAttributes<SVGElement> {
   name: string;
-  onClick?: React.MouseEventHandler<SVGElement>;
 }
 const Icon: React.FunctionComponent<Props> = (props) => {
   return (
@@ -15,6 +14,3 @@ const Icon: React.FunctionComponent<Props> = (props) => {
 };
 
 export default Icon;
-Icon.defaultProps = {
-  onClick: () => {},
-};
