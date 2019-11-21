@@ -19,7 +19,8 @@
     "interface-name": false,
     "object-literal-key-quotes": false,
     "jsx-wrap-multiline": false,
-    "space-before-function-paren": true
+    "space-before-function-paren": true,
+    "no-empty": false
   },
   "linterOptions": {
     "exclude": [
