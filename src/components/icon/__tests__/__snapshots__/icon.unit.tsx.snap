@@ -5,7 +5,7 @@ exports[`icon 组件 xxx 1`] = `
   className="wui-icon"
 >
   <use
-    xlinkHref="#qq"
+    xlinkHref="#alipay"
   />
 </svg>
 `;
