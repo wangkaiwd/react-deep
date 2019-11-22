@@ -12,6 +12,6 @@ const fn: React.MouseEventHandler<SVGElement> = (e) => {
 render(
   <Fragment>
     <Icon name="wechat" onMouseEnter={() => {console.log('enter');}}/>
-    <Icon name="alipay"/>
+    <Icon name="alipay" className="alipay"/>
     <Icon name="github"/>
   </Fragment>, document.getElementById('root'));
