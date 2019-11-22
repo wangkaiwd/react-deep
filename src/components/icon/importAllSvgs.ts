@@ -5,4 +5,7 @@ const importAll = (r: any) => {
   r.keys().forEach(r);
 };
 
-importAll(require.context('@/assets/svgs', true, /\.svg$/));
+try {
+  importAll(require.context('@/assets/svgs', true, /\.svg$/));
+} catch (e) {
+}

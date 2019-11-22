@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`icon 组件 xxx 1`] = `
+<svg
+  className="wui-icon"
+>
+  <use
+    xlinkHref="#qq"
+  />
+</svg>
+`;
