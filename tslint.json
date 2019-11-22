@@ -27,7 +27,8 @@
       "check-branch",
       "check-operator",
       "check-typecast"
-    ]
+    ],
+    "array-type": false
   },
   "linterOptions": {
     "exclude": [
