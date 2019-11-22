@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`icon 组件 xxx 1`] = `
+exports[`icon 组件 渲染成功 1`] = `
 <svg
   className="wui-icon"
 >
