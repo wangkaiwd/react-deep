@@ -20,3 +20,9 @@ make some ui component to dive in the usage of react
 6. 配置`jest`测试环境： [ts-jest](https://github.com/kulshekhar/ts-jest),之后如果遇到问题去`Google`
 
 ### 函数式组件 vs 类组件
+
+### `jest`测试环境配置
+* 使用`enzyme`结合`ts-jest`进行测试
+* 配置`fileMock`和`styleMock`
+
+
