@@ -1,13 +1,6 @@
 import merge from 'webpack-merge';
-import baseConfig from './webpack.config';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { absPath } from './helper';
+import baseConfig, { EnvProps } from './webpack.config';
 
-module.exports = merge(baseConfig, {
+module.exports = (env: EnvProps) => merge(baseConfig(env), {
   mode: 'production',
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: absPath('../public/index.html'),
-    }),
-  ],
 });

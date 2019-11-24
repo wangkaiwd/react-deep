@@ -1,8 +1,8 @@
 import merge from 'webpack-merge';
-import baseConfig from './webpack.config';
+import baseConfig, { EnvProps } from './webpack.config';
 import { absPath } from './helper';
 
-module.exports = merge(baseConfig, {
+module.exports = (env: EnvProps) => merge(baseConfig(env), {
   mode: 'production',
   devtool: false,
   output: {

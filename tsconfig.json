@@ -7,7 +7,6 @@
       "dom"
     ],
     "module": "commonjs",
-    "declaration": true,
     "allowJs": false,
     "strict": true,
     "baseUrl": "./src",
@@ -16,10 +15,8 @@
         "./*"
       ]
     },
-    "outDir": "dist",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "declarationDir": "dist/typings"
+    "forceConsistentCasingInFileNames": true
   },
   "exclude": [
     "node_modules",

@@ -8,9 +8,9 @@
     "./dist/**/*.{js,.d.ts}"
   ],
   "scripts": {
-    "start": "webpack-dev-server --config config/webpack.dev.ts",
-    "build:doc": "webpack --config config/webpack.doc.ts",
-    "build": "webpack --config config/webpack.prod.ts",
+    "start": "webpack-dev-server --env.NODE_ENV=devlopment --config config/webpack.dev.ts",
+    "build:doc": "webpack --env.NODE_ENV=document --config config/webpack.doc.ts",
+    "build:pro": "webpack --env.NODE_ENV=production --config config/webpack.pro.ts",
     "test": "jest",
     "ci": "cross-env JEST_JUNIT_OUTPUT_NAME=./test-results/jest/results.xml jest"
   },
