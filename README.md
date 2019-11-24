@@ -25,4 +25,6 @@ make some ui component to dive in the usage of react
 * 使用`enzyme`结合`ts-jest`进行测试
 * 配置`fileMock`和`styleMock`
 
-
+### 问题
+1. `circle ci`没有执行测试用例
+2. `awesome-typescript-loader`加了`options`后不会生成`.d.ts`文件

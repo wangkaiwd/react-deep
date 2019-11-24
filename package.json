@@ -6,6 +6,7 @@
   "files": [
     "dist/**/*"
   ],
+  "types": "./dist/typings/src/index.d.ts",
   "scripts": {
     "start": "webpack-dev-server --env.NODE_ENV=devlopment --config config/webpack.dev.ts",
     "build:doc": "webpack --env.NODE_ENV=document --config config/webpack.doc.ts",

@@ -72,7 +72,7 @@ const baseConfig: any = (env: EnvProps) => {
     plugins: [
       new CheckerPlugin(),
       new CleanWebpackPlugin(),
-      isPro && new HtmlWebpackPlugin({
+      !isPro && new HtmlWebpackPlugin({
         template: absPath('../public/index.html'),
       }),
     ].filter(Boolean),
