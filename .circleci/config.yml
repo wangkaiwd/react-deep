@@ -45,7 +45,7 @@ jobs:
 workflows:
   version: 2
   build_accept_deploy:
-    job:
+    jobs:
       - prepare
       - build:
           requires:
