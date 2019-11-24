@@ -5,7 +5,8 @@
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.dev.ts",
     "build": "webpack --config config/webpack.prod.ts",
-    "test": "jest"
+    "test": "jest",
+    "xxx": "cross-env JEST_JUNIT_OUTPUT_DIR=./test-results/jest/result.xml jest"
   },
   "repository": "git@github.com:wangkaiwd/react-deep.git",
   "author": "wangkaiwd <1162486176@qq.com>",
@@ -25,12 +26,14 @@
     "@types/webpack-merge": "^4.1.5",
     "awesome-typescript-loader": "^5.2.1",
     "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
     "dart-sass": "^1.23.3",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.9.0",
+    "jest-junit": "^9.0.0",
     "react-test-renderer": "^16.12.0",
     "sass": "^1.23.3",
     "sass-loader": "^8.0.0",
