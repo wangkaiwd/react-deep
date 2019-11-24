@@ -1,9 +1,8 @@
 {
   "name": "react-deep6673",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "private": false,
   "main": "./dist/main.js",
-  "typings": "./dist/typings/**/*",
   "files": [
     "./dist/**/*"
   ],
@@ -14,7 +13,7 @@
     "test": "jest",
     "ci": "cross-env JEST_JUNIT_OUTPUT_NAME=./test-results/jest/results.xml jest"
   },
-  "types": "./dist/typings/**/*.d.ts",
+  "types": "./dist/typings/**/*",
   "repository": "git@github.com:wangkaiwd/react-deep.git",
   "author": "wangkaiwd <1162486176@qq.com>",
   "license": "MIT",
