@@ -13,4 +13,6 @@ module.exports = {
   collectCoverage: true,
   reporters: ['default', 'jest-junit'],
   collectCoverageFrom: ['src/**/*.{ts,tsx}', '!**/node_modules/**'],
+  coverageDirectory: 'coverage',
+  coverageReporters: ['text', 'lcov'],
 };
