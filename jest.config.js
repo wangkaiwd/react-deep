@@ -11,5 +11,6 @@ module.exports = {
   },
   setupFilesAfterEnv: ['./test/setupTests.ts'],
   collectCoverage: true,
-  reporters: ['default', 'jest-junit'],
+  reporters: ['default'],
+  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!**/node_modules/**'],
 };
