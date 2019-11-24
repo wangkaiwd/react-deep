@@ -1,11 +1,11 @@
 {
   "name": "react-deep6673",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "main": "./dist/main.js",
-  "typings": "./dist/typings/**/*.d.ts",
+  "typings": "./dist/typings/**/*",
   "files": [
-    "./dist/**/*.{js,.d.ts}"
+    "./dist/**/*"
   ],
   "scripts": {
     "start": "webpack-dev-server --env.NODE_ENV=devlopment --config config/webpack.dev.ts",
