@@ -2,9 +2,13 @@
   "compilerOptions": {
     "jsx": "react",
     "target": "es5",
+    "lib": [
+      "es2015",
+      "dom"
+    ],
     "module": "commonjs",
-    "allowJs": false,
     "declaration": true,
+    "allowJs": false,
     "strict": true,
     "baseUrl": "./src",
     "paths": {
@@ -12,12 +16,13 @@
         "./*"
       ]
     },
+    "outDir": "dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "declarationDir": "dist/typings"
   },
   "exclude": [
     "node_modules",
-    "src/__tests__/**/*.{ts}"
+    "src/__tests__/**/*.{ts,tsx}"
   ]
 }
