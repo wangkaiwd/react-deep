@@ -10,9 +10,4 @@ module.exports = {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/__mocks__/fileMock.ts',
   },
   setupFilesAfterEnv: ['./test/setupTests.ts'],
-  collectCoverage: true,
-  reporters: ['default', 'jest-junit'],
-  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!**/node_modules/**'],
-  coverageDirectory: 'coverage',
-  coverageReporters: ['text', 'lcov'],
 };

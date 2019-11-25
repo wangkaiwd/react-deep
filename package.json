@@ -12,7 +12,7 @@
     "build:doc": "webpack --env.NODE_ENV=document --config config/webpack.doc.ts",
     "build:pro": "webpack --env.NODE_ENV=production --config config/webpack.pro.ts",
     "test": "jest",
-    "ci": "cross-env JEST_JUNIT_OUTPUT_NAME=./test-results/jest/results.xml jest"
+    "ci": "cross-env JEST_JUNIT_OUTPUT_NAME=./test-results/jest/results.xml jest --config jest.config.ci.js"
   },
   "repository": "git@github.com:wangkaiwd/react-deep.git",
   "author": "wangkaiwd <1162486176@qq.com>",
