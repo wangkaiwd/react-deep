@@ -5,6 +5,9 @@ import { absPath } from './helper';
 module.exports = (env: EnvProps) => merge(baseConfig(env), {
   mode: 'production',
   devtool: false,
+  entry: {
+    main: './index.tsx',
+  },
   output: {
     filename: '[name].js',
     path: absPath('../dist'),

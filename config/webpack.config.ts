@@ -16,13 +16,13 @@ const baseConfig = (env: EnvProps): webpack.Configuration => {
   ];
   if (!isPro) {
     plugins.push(new HtmlWebpackPlugin({
-      template: absPath('../public/index.html'),
+      template: absPath('../public/example.html'),
     }));
   }
   return {
     context: absPath('../src'),
     entry: {
-      main: './index.tsx',
+      main: './example.tsx',
     },
     output: {
       filename: '[name].js',
