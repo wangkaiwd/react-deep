@@ -1,5 +1,6 @@
 import Icon from '@/components/icon/icon';
 import * as React from 'react';
 import ReactDOM from 'react-dom';
+import IconExample from './example/icon/iconExample';
 
-ReactDOM.render(<Icon name="alipay"/>, document.getElementById('root'));
+ReactDOM.render(<IconExample/>, document.getElementById('root'));
