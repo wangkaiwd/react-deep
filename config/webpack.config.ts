@@ -2,13 +2,23 @@ import { CheckerPlugin } from 'awesome-typescript-loader';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import { absPath, resolveTsconfigPathsToAlias } from './helper';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import * as webpack from 'webpack';
 
 export interface EnvProps {
   NODE_ENV: 'development' | 'production' | 'test' | 'document';
 }
-const baseConfig: any = (env: EnvProps) => {
+const baseConfig = (env: EnvProps): webpack.Configuration => {
   const isDev: boolean = env.NODE_ENV === 'development';
   const isPro: boolean = env.NODE_ENV === 'production';
+  const plugins = [
+    new CheckerPlugin(),
+    new CleanWebpackPlugin(),
+  ];
+  if (!isPro) {
+    plugins.push(new HtmlWebpackPlugin({
+      template: absPath('../public/index.html'),
+    }));
+  }
   return {
     context: absPath('../src'),
     entry: {
@@ -69,13 +79,7 @@ const baseConfig: any = (env: EnvProps) => {
         },
       ],
     },
-    plugins: [
-      new CheckerPlugin(),
-      new CleanWebpackPlugin(),
-      !isPro && new HtmlWebpackPlugin({
-        template: absPath('../public/index.html'),
-      }),
-    ].filter(Boolean),
+    plugins,
     performance: { hints: false },
   };
 };
