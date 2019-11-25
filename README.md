@@ -1,6 +1,6 @@
 [![GitHub license](https://img.shields.io/github/license/wangkaiwd/react-deep)](https://github.com/wangkaiwd/react-deep/blob/master/LICENSE)
 ![David](https://img.shields.io/david/wangkaiwd/react-deep)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/w/wangkaiwd/react-deep)
+[![npm version](https://badge.fury.io/js/react-deep6673.svg)](https://badge.fury.io/js/react-deep6673)
 ## react-deep
 make some ui component to dive in the usage of react
 
