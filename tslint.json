@@ -28,7 +28,8 @@
       "check-operator",
       "check-typecast"
     ],
-    "array-type": false
+    "array-type": false,
+    "jsx-no-multiline-js": false
   },
   "linterOptions": {
     "exclude": [

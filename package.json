@@ -8,7 +8,7 @@
   ],
   "types": "./dist/typings/src/index.d.ts",
   "scripts": {
-    "start": "webpack-dev-server --env.NODE_ENV=devlopment --config config/webpack.dev.ts",
+    "start": "webpack-dev-server --env.NODE_ENV=development --config config/webpack.dev.ts",
     "build:doc": "webpack --env.NODE_ENV=document --config config/webpack.doc.ts",
     "build:pro": "webpack --env.NODE_ENV=production --config config/webpack.pro.ts",
     "test": "jest",
@@ -25,6 +25,7 @@
     "@types/node": "^12.12.8",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",
+    "@types/react-router-dom": "^5.1.3",
     "@types/react-test-renderer": "^16.9.1",
     "@types/webpack": "^4.39.9",
     "@types/webpack-dev-server": "^3.4.0",
@@ -58,6 +59,7 @@
   },
   "dependencies": {
     "react": "^16.11.0",
-    "react-dom": "^16.11.0"
+    "react-dom": "^16.11.0",
+    "react-router-dom": "^5.1.2"
   }
 }
