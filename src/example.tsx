@@ -7,6 +7,7 @@ import {
   Link,
 } from 'react-router-dom';
 import menus from './contant/menus';
+import './assets/styles/base.scss';
 
 const App = () => {
   return (
