@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Dialog from '../dialog';
 
 const DialogExample = () => {
+  const [visible, setVisible] = useState(false);
+  const onClick = () => {
+    setVisible(!visible);
+  };
   return (
     <div>
-      <Dialog/>
+      <button onClick={onClick}>click</button>
+      <Dialog visible={visible}>
+        123
+      </Dialog>
     </div>
   );
 };

@@ -1,0 +1,36 @@
+.wui-dialog {
+  &-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .85);
+  }
+  &-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: #fff;
+    min-height: 200px;
+    border-radius: 6px;
+  }
+  &-close {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    opacity: 0.8;
+    padding: 2px;
+    left: 100%;
+    bottom: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
