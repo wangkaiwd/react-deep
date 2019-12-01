@@ -2,8 +2,10 @@ import React, { MouseEventHandler, ReactElement } from 'react';
 import './dialog.scss';
 import { Icon } from '../../index';
 import { createPortal } from 'react-dom';
+import { classes, fixedPrefixClasses } from '../../utils/helpers';
 
-interface Props {
+const fixSc = fixedPrefixClasses('wui-dialog');
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
   visible: boolean;
   title?: string;
   onCancel?: MouseEventHandler<HTMLElement>;
@@ -11,22 +13,22 @@ interface Props {
   buttons?: ReactElement[];
 }
 const Dialog: React.FC<Props> = (props) => {
-  const { onCancel, buttons, children, title, visible } = props;
+  const { className, onCancel, buttons, children, title, visible } = props;
   const modal = (
-    <div className="wui-dialog">
-      <div className="wui-dialog-mask"/>
-      <div className="wui-dialog-content">
-        {title && <header className="wui-dialog-title">{title}</header>}
+    <div className={classes(fixSc(), className)}>
+      <div className={fixSc('mask')}/>
+      <div className={fixSc('content')}>
+        {title && <header className={fixSc('title')}>{title}</header>}
         <main>
           {children}
         </main>
         {
           buttons && buttons.length > 0 &&
-          <footer className="wui-dialog-footer">
+          <footer className={fixSc('footer')}>
             {buttons}
           </footer>
         }
-        <div className="wui-dialog-close" onClick={onCancel}>
+        <div className={fixSc('close')} onClick={onCancel}>
           <Icon name="close"/>
         </div>
       </div>
