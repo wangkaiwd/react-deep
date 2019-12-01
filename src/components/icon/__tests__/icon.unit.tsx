@@ -1,5 +1,5 @@
 import renderer from 'react-test-renderer';
-import Icon from '@/components/icon/icon';
+import Icon from '../index';
 import * as React from 'react';
 import { mount } from 'enzyme';
 // 测试引入scss文件的组件：@see:https://github.com/facebook/jest/issues/3094#issuecomment-284867098

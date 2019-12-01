@@ -1,4 +1,4 @@
-import IconExample from '../example/icon/iconExample';
+import IconExample from '../components/icon/demo/iconExample';
 import * as React from 'react';
 
 interface MenusProp {
