@@ -18,8 +18,8 @@ const Dialog: React.FC<Props> = (props) => {
     <div className={classes(fixSc(), className)}>
       <div className={fixSc('mask')}/>
       <div className={fixSc('content')}>
-        {title && <header className={fixSc('title')}>{title}</header>}
-        <main>
+        {title && <header className={fixSc('header')}>{title}</header>}
+        <main className={fixSc('main')}>
           {children}
         </main>
         {

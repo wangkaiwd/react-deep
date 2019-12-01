@@ -16,7 +16,7 @@ const DialogExample = () => {
   return (
     <div>
       <button onClick={onClick}>click</button>
-      <Dialog onCancel={onCancel} buttons={buttons} visible={visible}>
+      <Dialog title="测试标题" onCancel={onCancel} buttons={buttons} visible={visible}>
         123
       </Dialog>
     </div>

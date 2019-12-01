@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import menus from './contant/menus';
 import './assets/styles/base.scss';
+import './assets/styles/reset.scss';
 
 const App = () => {
   return (

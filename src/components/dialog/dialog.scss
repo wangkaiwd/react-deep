@@ -12,10 +12,25 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
+    width: 70vw;
+    max-width: 800px;
     background-color: #fff;
-    min-height: 200px;
-    border-radius: 6px;
+    border-radius: 4px;
+  }
+  &-header {
+    padding: 18px 20px;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(34, 36, 38, .15);
+    font-weight: 700;
+  }
+  &-main {
+    padding: 20px;
+  }
+  &-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 14px;
+    border-top: 1px solid rgba(34, 36, 38, .15);
   }
   &-close {
     position: absolute;
