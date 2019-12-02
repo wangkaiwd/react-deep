@@ -25,12 +25,16 @@
   }
   &-main {
     padding: 20px;
+    min-height: 100px;
   }
   &-footer {
     display: flex;
     justify-content: flex-end;
     padding: 14px;
     border-top: 1px solid rgba(34, 36, 38, .15);
+    &-button:first-child {
+      margin-right: 12px;
+    }
   }
   &-close {
     position: absolute;

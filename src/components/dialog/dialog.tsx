@@ -25,7 +25,7 @@ const Dialog: React.FC<Props> = (props) => {
         {
           buttons && buttons.length > 0 &&
           <footer className={fixSc('footer')}>
-            {buttons}
+            {buttons.map((button) => React.cloneElement(button, { className: fixSc('footer-button') }))}
           </footer>
         }
         <div className={fixSc('close')} onClick={onCancel}>
