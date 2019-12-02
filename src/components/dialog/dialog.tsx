@@ -13,10 +13,21 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   buttons?: ReactElement[];
   closeOnMaskClick?: boolean;
 }
-const Dialog: React.FC<Props> = (props) => {
-  const { className, onCancel, buttons, children, title, visible } = props;
+// @see:https://github.com/microsoft/TypeScript/issues/27425
+// 解决方法1：https://github.com/microsoft/TypeScript/issues/27425#issuecomment-440936580
+// 解决方法2：https://github.com/microsoft/TypeScript/issues/27425#issuecomment-440303291
+// 推荐方法：https://github.com/microsoft/TypeScript/issues/27425#issuecomment-478004521(正确的方法是使用函数默认值参数)
+const Dialog: React.FC<Props> = ({
+                                   buttons,
+                                   children,
+                                   className,
+                                   closeOnMaskClick = false,
+                                   onCancel = () => {},
+                                   title,
+                                   visible = false,
+                                 }) => {
   const onClickMask: React.MouseEventHandler<HTMLDivElement> = (e) => {
-    if (props.closeOnMaskClick && onCancel) {
+    if (closeOnMaskClick) {
       onCancel(e);
     }
   };
@@ -44,8 +55,3 @@ const Dialog: React.FC<Props> = (props) => {
 };
 
 export default Dialog;
-Dialog.defaultProps = {
-  onCancel: () => {},
-  onOk: () => {},
-  closeOnMaskClick: true,
-};
