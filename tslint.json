@@ -30,7 +30,8 @@
     ],
     "array-type": false,
     "jsx-no-multiline-js": false,
-    "no-shadowed-variable": false
+    "no-shadowed-variable": false,
+    "no-unused-expression": false
   },
   "linterOptions": {
     "exclude": [

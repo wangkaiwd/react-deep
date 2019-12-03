@@ -9,7 +9,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   visible: boolean;
   title?: string;
   onCancel?: MouseEventHandler<HTMLElement>;
-  onOk?: MouseEventHandler<HTMLButtonElement>;
+  onOk?: MouseEventHandler<HTMLElement>;
   buttons?: ReactElement[];
   closeOnMaskClick?: boolean;
 }
@@ -93,4 +93,84 @@ export const alert = ({ title, content }: AlertProps) => {
     </Dialog>
   );
   renderComponent(dialog);
+};
+
+interface ConfirmProps {
+  title?: string;
+  content: string | ReactElement;
+  onCancel?: MouseEventHandler<HTMLElement>;
+  onOk?: () => Promise<any>;
+}
+export const confirm = ({ title, content, onOk, onCancel }: ConfirmProps) => {
+  const container = document.createElement('div');
+  container.classList.add(fixSc('shortcut-container'));
+  const renderComponent = (component: ReactElement) => {
+    document.body.appendChild(container);
+    ReactDOM.render(component, container);
+  };
+  const unMountComponent = () => {
+    ReactDOM.unmountComponentAtNode(container);
+    container.remove();
+  };
+  const closeDialog: MouseEventHandler<HTMLElement> = (e) => {
+    onCancel && onCancel(e);
+    unMountComponent();
+    const cloneDialog = React.cloneElement(dialog, { visible: false });
+    renderComponent(cloneDialog);
+    unMountComponent();
+  };
+  const onClickOk: MouseEventHandler<HTMLElement> = (e) => {
+    if (onOk) {
+      // Promise处于reject时不会关闭confirm
+      onOk().then(() => closeDialog(e));
+    } else {
+      closeDialog(e);
+    }
+  };
+  const buttons = [
+    <button key="1" onClick={onClickOk}>确认</button>,
+    <button key="2" onClick={closeDialog}>取消</button>,
+  ];
+  const dialog = (
+    <Dialog
+      title={title}
+      onCancel={closeDialog}
+      onOk={onClickOk}
+      buttons={buttons}
+      visible={true}
+    >
+      {content}
+    </Dialog>
+  );
+  renderComponent(dialog);
+};
+
+export const modal = (content: string | ReactElement) => {
+  const container = document.createElement('div');
+  container.classList.add(fixSc('shortcut-container'));
+  const renderComponent = (component: ReactElement) => {
+    document.body.appendChild(container);
+    ReactDOM.render(component, container);
+  };
+  const unMountComponent = () => {
+    ReactDOM.unmountComponentAtNode(container);
+    container.remove();
+  };
+  const closeDialog = () => {
+    unMountComponent();
+    const cloneDialog = React.cloneElement(dialog, { visible: false });
+    renderComponent(cloneDialog);
+    unMountComponent();
+  };
+
+  const dialog = (
+    <Dialog
+      visible={true}
+      onCancel={closeDialog}
+    >
+      {content}
+    </Dialog>
+  );
+  renderComponent(dialog);
+  return closeDialog;
 };
