@@ -1,7 +1,7 @@
 import React, { MouseEventHandler, ReactElement } from 'react';
 import './dialog.scss';
 import { Icon } from '../../index';
-import { createPortal } from 'react-dom';
+import ReactDOM, { createPortal, unmountComponentAtNode } from 'react-dom';
 import { classes, fixedPrefixClasses } from '../../utils/helpers';
 
 const fixSc = fixedPrefixClasses('wui-dialog');
@@ -55,3 +55,42 @@ const Dialog: React.FC<Props> = ({
 };
 
 export default Dialog;
+
+interface AlertProps {
+  title?: string;
+  content: string | ReactElement;
+}
+export const alert = ({ title, content }: AlertProps) => {
+  const container = document.createElement('div');
+  container.classList.add(fixSc('shortcut-container'));
+  const renderComponent = (component: ReactElement) => {
+    document.body.appendChild(container);
+    ReactDOM.render(component, container);
+  };
+  const unMountComponent = () => {
+    ReactDOM.unmountComponentAtNode(container);
+    container.remove();
+  };
+  const closeDialog = () => {
+    unMountComponent();
+    const cloneDialog = React.cloneElement(dialog, { visible: false });
+    renderComponent(cloneDialog);
+    unMountComponent();
+  };
+
+  const buttons = [
+    <button key="1" onClick={closeDialog}>取消</button>,
+  ];
+
+  const dialog = (
+    <Dialog
+      title={title}
+      onCancel={closeDialog}
+      buttons={buttons}
+      visible={true}
+    >
+      {content}
+    </Dialog>
+  );
+  renderComponent(dialog);
+};

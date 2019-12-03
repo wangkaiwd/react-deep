@@ -29,7 +29,8 @@
       "check-typecast"
     ],
     "array-type": false,
-    "jsx-no-multiline-js": false
+    "jsx-no-multiline-js": false,
+    "no-shadowed-variable": false
   },
   "linterOptions": {
     "exclude": [
