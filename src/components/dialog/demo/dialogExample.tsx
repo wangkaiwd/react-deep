@@ -35,8 +35,3 @@ const DialogExample = () => {
 };
 
 export default DialogExample;
-
-// 快捷使用方式：
-// 1. modal(content): 所有的内容都用户传
-// 2. alert({title,content})：只显示取消，并且需要用户提供title和content
-// 3. confirm({title,content,onOk,onCancel}): 需要用户提供title,content以及确认和取消事件

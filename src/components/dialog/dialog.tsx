@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, ReactElement } from 'react';
+import React, { MouseEventHandler, ReactElement, ReactNode } from 'react';
 import './dialog.scss';
 import { Icon } from '../../index';
 import ReactDOM, { createPortal, unmountComponentAtNode } from 'react-dom';
@@ -56,11 +56,7 @@ const Dialog: React.FC<Props> = ({
 
 export default Dialog;
 
-interface AlertProps {
-  title?: string;
-  content: string | ReactElement;
-}
-export const alert = ({ title, content }: AlertProps) => {
+export const modal = (content: ReactNode, title?: string, buttons?: ReactElement[]) => {
   const container = document.createElement('div');
   container.classList.add(fixSc('shortcut-container'));
   const renderComponent = (component: ReactElement) => {
@@ -78,10 +74,6 @@ export const alert = ({ title, content }: AlertProps) => {
     unMountComponent();
   };
 
-  const buttons = [
-    <button key="1" onClick={closeDialog}>取消</button>,
-  ];
-
   const dialog = (
     <Dialog
       title={title}
@@ -93,6 +85,17 @@ export const alert = ({ title, content }: AlertProps) => {
     </Dialog>
   );
   renderComponent(dialog);
+  return closeDialog;
+};
+interface AlertProps {
+  title?: string;
+  content: ReactNode;
+}
+export const alert = ({ title, content }: AlertProps) => {
+  const buttons = [
+    <button key="1" onClick={() => close()}>确认</button>,
+  ];
+  const close = modal(content, title, buttons);
 };
 
 interface ConfirmProps {
@@ -102,75 +105,22 @@ interface ConfirmProps {
   onOk?: () => Promise<any>;
 }
 export const confirm = ({ title, content, onOk, onCancel }: ConfirmProps) => {
-  const container = document.createElement('div');
-  container.classList.add(fixSc('shortcut-container'));
-  const renderComponent = (component: ReactElement) => {
-    document.body.appendChild(container);
-    ReactDOM.render(component, container);
-  };
-  const unMountComponent = () => {
-    ReactDOM.unmountComponentAtNode(container);
-    container.remove();
-  };
-  const closeDialog: MouseEventHandler<HTMLElement> = (e) => {
+  const onClose: MouseEventHandler<HTMLElement> = (e) => {
     onCancel && onCancel(e);
-    unMountComponent();
-    const cloneDialog = React.cloneElement(dialog, { visible: false });
-    renderComponent(cloneDialog);
-    unMountComponent();
+    close();
   };
   const onClickOk: MouseEventHandler<HTMLElement> = (e) => {
     if (onOk) {
       // Promise处于reject时不会关闭confirm
-      onOk().then(() => closeDialog(e));
+      onOk().then(() => close());
     } else {
-      closeDialog(e);
+      close();
     }
   };
   const buttons = [
     <button key="1" onClick={onClickOk}>确认</button>,
-    <button key="2" onClick={closeDialog}>取消</button>,
+    <button key="2" onClick={onClose}>取消</button>,
   ];
-  const dialog = (
-    <Dialog
-      title={title}
-      onCancel={closeDialog}
-      onOk={onClickOk}
-      buttons={buttons}
-      visible={true}
-    >
-      {content}
-    </Dialog>
-  );
-  renderComponent(dialog);
+  const close = modal(content, title, buttons);
 };
 
-export const modal = (content: string | ReactElement) => {
-  const container = document.createElement('div');
-  container.classList.add(fixSc('shortcut-container'));
-  const renderComponent = (component: ReactElement) => {
-    document.body.appendChild(container);
-    ReactDOM.render(component, container);
-  };
-  const unMountComponent = () => {
-    ReactDOM.unmountComponentAtNode(container);
-    container.remove();
-  };
-  const closeDialog = () => {
-    unMountComponent();
-    const cloneDialog = React.cloneElement(dialog, { visible: false });
-    renderComponent(cloneDialog);
-    unMountComponent();
-  };
-
-  const dialog = (
-    <Dialog
-      visible={true}
-      onCancel={closeDialog}
-    >
-      {content}
-    </Dialog>
-  );
-  renderComponent(dialog);
-  return closeDialog;
-};

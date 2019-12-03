@@ -8,3 +8,11 @@ React.cloneElement(element,[props],[...children])
 ```jsx harmony
 <element.type {...element.props} {...props}>{children}</element.type>
 ```
+
+## 优化代码
+> 在代码没有共性的时候要主动为代码创造共性
+
+代码优化：
+1. 整理共性
+2. 提取公共部分
+3. 想办法通过增删构造相同结构
