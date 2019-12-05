@@ -18,3 +18,11 @@ React.cloneElement(element,[props],[...children])
     1. 将不同部分通过参数传如
     2. 想办法在不影响功能的前提下通过增删代码构造相同结构
 3. 使用提取函数依次实现旧有功能
+
+## 知识点
+1. 通过高阶函数实现`fixedPrefixClasses`(主要是写该函数时的思路)
+2. 传送门：[`React.createPortal`](https://reactjs.org/docs/portals.html)
+3. [`React`中动态生成组件](https://github.com/wangkaiwd/react-deep/blob/88d414f3e7972d2d7b07cb7a8b6cd6cca98bc0ea/src/components/dialog/dialog.tsx#L62-L65)
+4. [通过闭包返回`api`](https://github.com/wangkaiwd/react-deep/blob/88d414f3e7972d2d7b07cb7a8b6cd6cca98bc0ea/src/components/dialog/dialog.tsx#L88)
+5. [`React.cloneElement`使用案例](https://github.com/wangkaiwd/react-deep/blob/88d414f3e7972d2d7b07cb7a8b6cd6cca98bc0ea/src/components/dialog/dialog.tsx#L45)    
+6. [函数式组件`defaultProps`推荐写法](https://github.com/microsoft/TypeScript/issues/27425#issuecomment-478004521)
