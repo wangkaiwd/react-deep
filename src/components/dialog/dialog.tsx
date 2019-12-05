@@ -123,4 +123,3 @@ export const confirm = ({ title, content, onOk, onCancel }: ConfirmProps) => {
   ];
   const close = modal(content, title, buttons);
 };
-
