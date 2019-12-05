@@ -59,7 +59,7 @@ export default Dialog;
 export const modal = (content: ReactNode, title?: string, buttons?: ReactElement[]) => {
   const container = document.createElement('div');
   container.classList.add(fixSc('shortcut-container'));
-  const renderComponent = (component: ReactElement) => {
+  const dynamicRenderComponent = (component: ReactElement) => {
     document.body.appendChild(container);
     ReactDOM.render(component, container);
   };
@@ -70,7 +70,7 @@ export const modal = (content: ReactNode, title?: string, buttons?: ReactElement
   const closeDialog = () => {
     unMountComponent();
     const cloneDialog = React.cloneElement(dialog, { visible: false });
-    renderComponent(cloneDialog);
+    dynamicRenderComponent(cloneDialog);
     unMountComponent();
   };
 
@@ -84,7 +84,7 @@ export const modal = (content: ReactNode, title?: string, buttons?: ReactElement
       {content}
     </Dialog>
   );
-  renderComponent(dialog);
+  dynamicRenderComponent(dialog);
   return closeDialog;
 };
 interface AlertProps {
