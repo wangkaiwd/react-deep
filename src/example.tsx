@@ -9,25 +9,28 @@ import {
 import menus from './contant/menus';
 import './assets/styles/base.scss';
 import './assets/styles/reset.scss';
+import './example.scss';
 
 const App = () => {
   return (
     <Router>
-      <div>
-        <ul>
+      <div className="example">
+        <ul className="menu">
           {menus.map((menu) => (
             <li key={menu.path}>
               <Link to={menu.path}>{menu.name}</Link>
             </li>
           ))}
         </ul>
-        <Switch>
-          {menus.map((menu) => (
-            <Route path={menu.path} key={menu.path}>
-              <menu.component/>
-            </Route>
-          ))}
-        </Switch>
+        <div className="component-wrapper">
+          <Switch>
+            {menus.map((menu) => (
+              <Route path={menu.path} key={menu.path}>
+                <menu.component/>
+              </Route>
+            ))}
+          </Switch>
+        </div>
       </div>
     </Router>
   );

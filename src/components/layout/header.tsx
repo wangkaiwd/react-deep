@@ -1,4 +1,17 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
+import { classes, fixedPrefixClasses } from '../../utils/helpers';
+import './header.scss';
 
-const Header = () => <div>header</div>;
+const fixSc = fixedPrefixClasses('wui-header');
+interface Props extends HTMLAttributes<HTMLDivElement> {
+
+}
+const Header: React.FC<Props> = (props) => {
+  const { className, ...rest } = props;
+  return (
+    <div className={classes(fixSc(), className)} {...rest}>
+      {props.children}
+    </div>
+  );
+};
 export default Header;
