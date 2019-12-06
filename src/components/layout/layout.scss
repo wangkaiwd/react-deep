@@ -1,4 +1,8 @@
 .wui-layout {
   display: flex;
   flex-direction: column;
+  &.wui-layout-hasAside {
+    flex-direction: row;
+    flex: 1;
+  }
 }

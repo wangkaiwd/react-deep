@@ -3,6 +3,7 @@ import Content from '../content';
 import Header from '../header';
 import Footer from '../footer';
 import Layout from '../layout';
+import Aside from '../aside';
 
 const LayoutExample = () => {
   return (
@@ -16,7 +17,10 @@ const LayoutExample = () => {
       <h3 style={{ marginTop: '12px' }}>例子2</h3>
       <Layout style={{ height: '600px', border: '1px solid red' }}>
         <Header>Header</Header>
-        <Content>Content</Content>
+        <Layout>
+          <Aside>Aside</Aside>
+          <Content>Content</Content>
+        </Layout>
         <Footer>Footer</Footer>
       </Layout>
     </Fragment>
