@@ -23,6 +23,15 @@ const LayoutExample = () => {
         </Layout>
         <Footer>Footer</Footer>
       </Layout>
+      <h3 style={{ marginTop: '12px' }}>例子3</h3>
+      <Layout style={{ height: '600px', border: '1px solid red' }}>
+        <Header>Header</Header>
+        <Layout>
+          <Content>Content</Content>
+          <Aside>Aside</Aside>
+        </Layout>
+        <Footer>Footer</Footer>
+      </Layout>
     </Fragment>
   );
 };
