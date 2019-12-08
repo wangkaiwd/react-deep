@@ -11,11 +11,12 @@ const Layout: React.FC<Props> = (props) => {
   const { className, ...rest } = props;
   const hasAside = useMemo(() => {
     const childrenComponents = Array.isArray(props.children) ? props.children : [props.children];
+    // todo: 这里为什么要用类型断言？
     return childrenComponents.some((item) => (item as ReactElement).type === Aside);
   }, []);
   return (
     <div
-      className={classes(fixSc(), className, hasAside ? fixSc('hasAside') : '')}
+      className={classes(fixSc(), className, fixSc({ hasAside }))}
       {...rest}
     >
       {props.children}
