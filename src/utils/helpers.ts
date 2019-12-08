@@ -21,10 +21,10 @@ const makeClasses = (names: ClassNames, prefix: string = ''): string => {
         for (let i = 0; i < keys.length; i++) {
           const key = keys[i];
           name[key] && result.push(prefix ? `${prefix}-${key}` : key);
-          return result;
         }
+      } else {
+        result.push(prefix ? `${prefix}-${name}` : name);
       }
-      result.push(prefix ? `${prefix}-${name}` : name);
       return result;
     }, [])
     .join(' ');
