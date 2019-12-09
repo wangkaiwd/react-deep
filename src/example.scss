@@ -1,12 +1,17 @@
 .example {
   height: 100vh;
-  display: flex;
+  overflow-y: auto;
   .menu {
     width: 100px;
   }
+  .footer, .header {
+    height: 60px;
+    flex-shrink: 0;
+  }
+  .content {
+    min-height: 0;
+  }
   .component-wrapper {
-    flex: 1;
-    height: 100%;
     overflow-y: auto;
   }
 }
