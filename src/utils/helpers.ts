@@ -17,10 +17,10 @@ const makeClasses = (names: ClassNames, prefix: string = ''): string => {
   return (names.filter(Boolean) as (string | AnyObject)[])
     .reduce((result: (string | AnyObject)[], name) => {
       if (isPlainObject(name)) {
-        const keys = Object.keys(name);
-        for (let i = 0; i < keys.length; i++) {
-          const key = keys[i];
-          name[key] && result.push(prefix ? `${prefix}-${key}` : key);
+        const keyValues = Object.entries(name);
+        for (let i = 0; i < keyValues.length; i++) {
+          const [key, value] = keyValues[i];
+          value && result.push(prefix ? `${prefix}-${key}` : key);
         }
       } else {
         result.push(prefix ? `${prefix}-${name}` : name);
