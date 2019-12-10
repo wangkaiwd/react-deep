@@ -541,6 +541,13 @@
     "@types/history" "*"
     "@types/react" "*"
 
+"@types/react-syntax-highlighter@^11.0.3":
+  version "11.0.3"
+  resolved "https://registry.npm.taobao.org/@types/react-syntax-highlighter/download/@types/react-syntax-highlighter-11.0.3.tgz#ae1dac83010e4a7ca04a470bc1ca3c2df33decbb"
+  integrity sha1-rh2sgwEOSnygSkcLwco8LfM97Ls=
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-test-renderer@^16.9.1":
   version "16.9.1"
   resolved "https://registry.npm.taobao.org/@types/react-test-renderer/download/@types/react-test-renderer-16.9.1.tgz?cache=0&sync_timestamp=1572471873281&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Freact-test-renderer%2Fdownload%2F%40types%2Freact-test-renderer-16.9.1.tgz#9d432c46c515ebe50c45fa92c6fb5acdc22e39c4"
