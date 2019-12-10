@@ -19,7 +19,7 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "types/custom.d.ts",
+    "types/*.d.ts",
     "src/**/*.{ts,tsx}"
   ],
   "exclude": [

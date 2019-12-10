@@ -6,13 +6,17 @@ import './assets/styles/base.scss';
 import './assets/styles/reset.scss';
 import './example.scss';
 import { Aside, Content, Footer, Header, Layout } from './components/layout/layout';
+// @ts-ignore
+import avatar from './assets/images/avatar.jpeg';
 
 const $ = (selector: string) => document.querySelector<HTMLElement>(selector);
 const App = () => {
   return (
     <Router>
       <Layout className="example">
-        <Header className="header">Header</Header>
+        <Header className="header">
+          <img src={avatar} height={'60px'} width={'60px'} alt=""/>
+        </Header>
         <Layout style={{ border: '1px solid red' }} className="content">
           <Aside style={{ border: '1px solid green' }}>
             <ul className="menu">

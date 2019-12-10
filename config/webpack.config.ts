@@ -63,14 +63,9 @@ const baseConfig = (env: EnvProps): webpack.Configuration => {
           ],
         },
         {
-          test: /\.(png|jpg|gif)$/i,
+          test: /\.(png|jpg|gif|jpeg)$/i,
           use: [
-            {
-              loader: 'url-loader',
-              options: {
-                limit: 8192,
-              },
-            },
+            { loader: 'file-loader' },
           ],
         },
         {
