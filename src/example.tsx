@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router, Link, Route, Switch, Redirect } from 'react-router-dom';
-import menus from './contant/menus';
+import menus from './constant/menus';
 import './assets/styles/base.scss';
 import './assets/styles/reset.scss';
 import './example.scss';
