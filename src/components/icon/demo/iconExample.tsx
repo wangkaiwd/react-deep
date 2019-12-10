@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Icon from '../icon';
 
+const code = require('!!raw-loader!./iconExample.tsx');
 const IconExample = () => {
   return (
-    <Icon name="alipay"/>
+    <Fragment>
+      <Icon name="alipay"/>
+      <pre>
+        {code.default}
+      </pre>
+    </Fragment>
   );
 };
 

@@ -32,7 +32,8 @@
     "jsx-no-multiline-js": false,
     "no-shadowed-variable": false,
     "no-unused-expression": false,
-    "prefer-for-of": false
+    "prefer-for-of": false,
+    "no-var-requires": false
   },
   "linterOptions": {
     "exclude": [
