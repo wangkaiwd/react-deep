@@ -27,7 +27,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
-      - run: yarn build:pro
+      - run: yarn build:doc
       - persist_to_workspace:
           root: .
           paths:
