@@ -41,7 +41,7 @@ const baseConfig = (env: EnvProps): webpack.Configuration => {
           test: /\.tsx?$/,
           loader: 'awesome-typescript-loader',
           options: {
-            configFileName: isDev ? 'tsconfig.json' : 'tsconfig.pro.json',
+            configFileName: isPro ? 'tsconfig.pro.json' : 'tsconfig.json',
             // FIXME: 会导致无法生成.d.ts文件
             // useTranspileModule: true,
             // useCache: true,
