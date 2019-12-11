@@ -12,7 +12,9 @@
     "build:doc": "cross-env webpack --env.NODE_ENV=document --config config/webpack.doc.ts",
     "build:pro": "cross-env webpack --env.NODE_ENV=production --config config/webpack.pro.ts",
     "test": "jest",
-    "ci": "cross-env JEST_JUNIT_OUTPUT_NAME=./test-results/jest/results.xml jest --config jest.config.ci.js"
+    "ci": "cross-env JEST_JUNIT_OUTPUT_NAME=./test-results/jest/results.xml jest --config jest.config.ci.js",
+    "deploy": "yarn build:doc && yarn gh-pages && rm -rf dist",
+    "gh-pages": "gh-pages -d dist"
   },
   "repository": "git@github.com:wangkaiwd/react-deep.git",
   "author": "wangkaiwd <1162486176@qq.com>",
@@ -61,6 +63,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "gh-pages": "^2.1.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
