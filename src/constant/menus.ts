@@ -2,6 +2,7 @@ import * as React from 'react';
 import DialogExample from '../components/dialog/demo/dialogExample';
 import LayoutExample from '../components/layout/demo/layoutExample';
 import ExampleTest from '../components/icon/demo';
+import FormExample from '../components/form/demo/formExample';
 
 interface MenusProp {
   path: string;
@@ -23,6 +24,11 @@ const menus: MenusProp[] = [
     path: '/layout',
     name: '布局',
     component: LayoutExample,
+  },
+  {
+    path: '/form',
+    name: '表单',
+    component: FormExample,
   },
 ];
 
