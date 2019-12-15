@@ -3,9 +3,7 @@ import Form from '../form';
 
 const FormExample = () => {
   return (
-    <div>
-      <Form/>
-    </div>
+    <Form/>
   );
 };
 
