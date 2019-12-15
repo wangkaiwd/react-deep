@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const Form = () => {
+interface IFieldProps {
+  name: string;
+  label: string;
+  input: { type: string };
+}
+interface IFormProps {
+  formData: { [k: string]: any };
+  fields: IFieldProps[];
+}
+const Form: FC<IFormProps> = (props) => {
   return (
-    <div>
-      Form
-    </div>
+    <form>
+      {props.fields.map((field) => (
+        <div key={field.name}>
+          {field.label}
+          <input type={field.input.type}/>
+        </div>
+      ))}
+    </form>
   );
 };
 
