@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Form from '../form';
+import Form, { IFormValues } from '../form';
 
 const FormExample = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<IFormValues>({
     username: '用户名',
     password: '密码',
   });
@@ -18,8 +18,24 @@ const FormExample = () => {
       input: { type: 'password' },
     },
   ];
+  const buttons = [
+    <button key={1} type="submit">提交</button>,
+    <button key={2}>返回</button>,
+  ];
+  const onSubmit = () => {
+    console.log('formData', formData);
+  };
+  const onChange = (newFormData: IFormValues) => {
+    setFormData(newFormData);
+  };
   return (
-    <Form formData={formData} fields={fields}/>
+    <Form
+      onChange={onChange}
+      onSubmit={onSubmit}
+      formData={formData}
+      buttons={buttons}
+      fields={fields}
+    />
   );
 };
 
