@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ChangeEventHandler, FC, FormEventHandler, ReactElement } from 'react';
+import React, { ChangeEvent, FC, FormEventHandler, ReactElement } from 'react';
 
 interface IFieldProps {
   name: string;
