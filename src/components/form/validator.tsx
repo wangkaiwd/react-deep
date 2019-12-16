@@ -14,6 +14,13 @@ interface IConstraintsProps {
 interface IErrors {
   [key: string]: string[];
 }
+const isEmpty = (value: any) => {
+  if (value === undefined || value === null || value === '') {
+    return true;
+  } else {
+    return false;
+  }
+};
 const validator = (formData: IFormValues, constraints: IConstraintsProps): IErrors => {
   const errors: IErrors = {};
   const addErrors = (key: string, message: string) => {
@@ -26,10 +33,8 @@ const validator = (formData: IFormValues, constraints: IConstraintsProps): IErro
   Object.keys(formData).map((key) => {
     const constraint = constraints[key];
     constraint.map((item) => {
-      if (item.required) {
-        if (formData[key] === undefined || formData[key] === null || formData[key] === '') {
-          addErrors(key, item.message);
-        }
+      if (item.required && isEmpty(formData[key])) {
+        addErrors(key, item.message);
       }
       if (item.maxLength && formData[key].length > item.maxLength) {
         addErrors(key, item.message);
