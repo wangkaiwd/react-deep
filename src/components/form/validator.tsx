@@ -2,10 +2,10 @@ import { IFormValues } from './form';
 
 interface IConstraintItem {
   message: string;
-  required: boolean;
-  maxLength: number;
-  minLength: number;
-  pattern: RegExp;
+  required?: boolean;
+  maxLength?: number;
+  minLength?: number;
+  pattern?: RegExp;
 }
 interface IConstraintsProps {
   [key: string]: IConstraintItem[];
