@@ -11,7 +11,7 @@ interface IConstraintsProps {
   [key: string]: IConstraintItem[];
 }
 
-interface IErrors {
+export interface IErrors {
   [key: string]: string[];
 }
 const isEmpty = (value: any) => {

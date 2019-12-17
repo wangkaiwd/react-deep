@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Form, { IFormValues } from '../form';
-import validator from '../validator';
+import validator, { IErrors } from '../validator';
 
 const FormExample = () => {
   const [formData, setFormData] = useState<IFormValues>({
     username: '用户名',
     password: '密码',
   });
+  const [errors, setErrors] = useState<IErrors>({});
   const fields = [
     {
       name: 'username',
@@ -36,7 +37,7 @@ const FormExample = () => {
       ],
     };
     const errors = validator(formData, constraints);
-    console.log('errors', errors);
+    setErrors(errors);
   };
   const onChange = (newFormData: IFormValues) => {
     setFormData(newFormData);
@@ -46,6 +47,7 @@ const FormExample = () => {
       onChange={onChange}
       onSubmit={onSubmit}
       formData={formData}
+      errors={errors}
       buttons={buttons}
       fields={fields}
     />

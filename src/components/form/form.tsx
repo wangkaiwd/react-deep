@@ -1,4 +1,6 @@
 import React, { ChangeEvent, FC, FormEventHandler, ReactElement } from 'react';
+import { IErrors } from './validator';
+import { fixedPrefixClasses } from '../../utils/helpers';
 
 interface IFieldProps {
   name: string;
@@ -14,7 +16,9 @@ interface IFormProps {
   buttons: ReactElement[];
   onSubmit: FormEventHandler<HTMLFormElement>;
   onChange: (newFormData: IFormValues) => void;
+  errors: IErrors;
 }
+const fixSc = fixedPrefixClasses('wui-form');
 const Form: FC<IFormProps> = (props) => {
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -25,16 +29,20 @@ const Form: FC<IFormProps> = (props) => {
     const newFormData = { ...props.formData, [name]: value };
     props.onChange(newFormData);
   };
+  const { errors, formData } = props;
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className={fixSc()}>
       {props.fields.map((field) => (
         <div key={field.name}>
           {field.label}
           <input
             onChange={onInputChang.bind(null, field.name)}
             type={field.input.type}
-            value={props.formData[field.name]}
+            value={formData[field.name]}
           />
+          <div className={fixSc('error')}>
+            {errors[field.name]}
+          </div>
         </div>
       ))}
       <footer>
