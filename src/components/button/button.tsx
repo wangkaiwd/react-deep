@@ -5,9 +5,9 @@ interface Props {
 }
 const Button: React.FC<Props> = (props) => {
   return (
-    <div>
+    <button>
       {props.children}
-    </div>
+    </button>
   );
 };
 
