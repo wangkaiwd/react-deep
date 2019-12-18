@@ -1,13 +1,32 @@
+$default-color: #e0e1e2;
 .wui-button {
-  padding: 1em 1.5em;
+  font-size: 1em;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  font-weight: 500;
   &-default {
-    border: none;
     background-color: #e0e1e2;
+    color: rgba(0, 0, 0, .6);
+    &:focus, &:hover {
+      background-color: #cacbcd;
+      color: rgba(0, 0, 0, .8);
+    }
   }
   &-primary {
-
+    background-color: #2185d0;
+    color: #fff;
+    &:focus, &:hover {
+      background-color: #0d71bb;
+    }
   }
   &-secondary {
-
+    background-color: #1b1c1d;
+    color: #fff;
+    &:focus, &:hover {
+      background-color: #27292a;
+    }
   }
 }

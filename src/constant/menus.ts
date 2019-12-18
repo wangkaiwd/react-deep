@@ -3,6 +3,7 @@ import DialogExample from '../components/dialog/demo/dialogExample';
 import LayoutExample from '../components/layout/demo/layoutExample';
 import ExampleTest from '../components/icon/demo';
 import FormExample from '../components/form/demo/formExample';
+import ButtonExample from '../components/button/demo/buttonExample';
 
 interface MenusProp {
   path: string;
@@ -14,6 +15,11 @@ const menus: MenusProp[] = [
     path: '/icon',
     name: '图标',
     component: ExampleTest,
+  },
+  {
+    path: '/button',
+    name: '按钮',
+    component: ButtonExample,
   },
   {
     path: '/dialog',
