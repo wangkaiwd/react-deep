@@ -50,6 +50,10 @@ describe('fixedPrefixClasses', () => {
     const fixSc = fixedPrefixClasses('wui-test');
     expect(fixSc('x', undefined)).toEqual('wui-test-x');
   });
+  it('接受第 1 个参数为空，且还有其余参数，则第 1 个空会被替换为固定前缀', () => {
+    const fixSc = fixedPrefixClasses('wui-test');
+    expect(fixSc('', 'x', '', 'y')).toEqual('wui-test wui-test-x wui-test-y');
+  });
   it('接受 object', () => {
     const fixSc = fixedPrefixClasses('wui-test');
     expect(fixSc({ name: 'xxx', active: true }, {
