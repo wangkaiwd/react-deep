@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Form, { IFormValues } from '../form';
 import validator, { IErrors } from '../validator';
+import Button from '../../button/button';
 
 const FormExample = () => {
   const [formData, setFormData] = useState<IFormValues>({
@@ -22,8 +23,8 @@ const FormExample = () => {
   ];
   const buttons = [
     // button type 的默认值是 submit: @see:https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button
-    <button key={1}>提交</button>,
-    <button key={2} type="button">返回</button>,
+    <Button key={1}>提交</Button>,
+    <Button key={2} type="button">返回</Button>,
   ];
   const onSubmit = () => {
     const constraints = {

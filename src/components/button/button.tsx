@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
+import './button.scss';
+import { classes, fixedPrefixClasses } from '../../utils/helpers';
 
-interface Props {
-  type?: string;
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+  styleType?: 'default' | 'primary' | 'secondary';
 }
-const Button: React.FC<Props> = (props) => {
+const fixSc = fixedPrefixClasses('wui-button');
+const sc = classes;
+const Button: React.FC<Props> = ({
+                                   children,
+                                   className,
+                                   styleType = 'default',
+                                   ...rest
+                                 }) => {
   return (
-    <button>
-      {props.children}
+    <button
+      className={sc(fixSc('', styleType), className)}
+      {...rest}
+    >
+      {children}
     </button>
   );
 };

@@ -10,6 +10,10 @@ export const classes = (...names: ClassNames): string => {
 export const fixedPrefixClasses = (prefix: string) => {
   return (...names: ClassNames) => {
     if (names.length === 0) {return prefix;}
+    if (names[0] === '' && names.length > 0) {
+      const classesString = makeClasses(names, prefix);
+      return `${prefix} ${classesString}`;
+    }
     return makeClasses(names, prefix);
   };
 };
