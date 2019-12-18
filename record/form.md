@@ -19,3 +19,4 @@
 
 ### `css`
 * [`:last-child`](https://stackoverflow.com/questions/18995362/last-child-not-working-as-expected)
+* [`what is the difference between first child and first of type`](https://stackoverflow.com/questions/24657555/what-is-the-difference-between-first-child-and-first-of-type)
