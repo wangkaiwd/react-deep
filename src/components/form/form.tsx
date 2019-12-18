@@ -33,21 +33,27 @@ const Form: FC<IFormProps> = (props) => {
   const { errors, formData } = props;
   return (
     <form onSubmit={onSubmit} className={fixSc()}>
-      <div className={fixSc('content')}>
+      <table className={fixSc('content')}>
+        <tbody>
         {props.fields.map((field) => (
-          <div className={fixSc('row')} key={field.name}>
-            {field.label}
-            <input
-              onChange={onInputChang.bind(null, field.name)}
-              type={field.input.type}
-              value={formData[field.name]}
-            />
-            <div className={fixSc('error')}>
-              {errors[field.name]}
-            </div>
-          </div>
+          <tr className={fixSc('tr')} key={field.name}>
+            <td className={fixSc('td')}>
+              {field.label}
+            </td>
+            <td className={fixSc('td')}>
+              <input
+                onChange={onInputChang.bind(null, field.name)}
+                type={field.input.type}
+                value={formData[field.name]}
+              />
+              <div className={fixSc('error')}>
+                {errors[field.name]}
+              </div>
+            </td>
+          </tr>
         ))}
-      </div>
+        </tbody>
+      </table>
       <footer className={fixSc('footer')}>
         {props.buttons}
       </footer>

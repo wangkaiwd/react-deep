@@ -1,9 +1,14 @@
 .wui-form {
-  &-row {
-    margin-bottom: 24px;
-    // @see: https://stackoverflow.com/questions/18995362/last-child-not-working-as-expected
-    &:last-child {
-      margin-bottom: 0;
-    }
+  // tr,td设置margin不会生效
+  &-tr &-td {
+    padding-bottom: 24px;
+  }
+  &-tr:last-child &-td {
+    padding-bottom: 0;
+  }
+
+  // 相邻兄弟选择器
+  &-td + &-td {
+    padding-left: 6px;
   }
 }
