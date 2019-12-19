@@ -19,9 +19,11 @@ interface IFormProps {
   onSubmit: FormEventHandler<HTMLFormElement>;
   onChange: (newFormData: IFormValues) => void;
   errors: IErrors;
+  errorsDisplayMode?: 'first' | 'all';
 }
 const fixSc = fixedPrefixClasses('wui-form');
 const Form: FC<IFormProps> = (props) => {
+  const { errors, formData, errorsDisplayMode = 'first' } = props;
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     props.onSubmit(e);
@@ -31,7 +33,13 @@ const Form: FC<IFormProps> = (props) => {
     const newFormData = { ...props.formData, [name]: value };
     props.onChange(newFormData);
   };
-  const { errors, formData } = props;
+  const processErrors = (field: IFieldProps) => {
+    const targetErrors = errors[field.name];
+    if (targetErrors) {
+      return errorsDisplayMode === 'first' ? targetErrors[0] : targetErrors.join('，');
+    }
+    return [];
+  };
   return (
     <form onSubmit={onSubmit} className={fixSc()}>
       <table className={fixSc('content')}>
@@ -48,7 +56,7 @@ const Form: FC<IFormProps> = (props) => {
                 value={formData[field.name]}
               />
               <div className={fixSc('errors')}>
-                {errors[field.name]}
+                {processErrors(field)}
               </div>
             </td>
           </tr>
