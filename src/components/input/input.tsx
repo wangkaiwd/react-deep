@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { FC, InputHTMLAttributes } from 'react';
+import { classes, fixedPrefixClasses } from '../../utils/helpers';
+import './input.scss';
 
-const Input = () => {
+interface IProps extends InputHTMLAttributes<HTMLInputElement> {
+}
+const sc = classes;
+const fixSc = fixedPrefixClasses('wui-input');
+const Input: FC<IProps> = ({
+                             className,
+                             ...rest
+                           }) => {
   return (
-    <input type="text"/>
+    <input
+      className={sc(fixSc(), className)}
+      {...rest}
+    />
   );
 };
 

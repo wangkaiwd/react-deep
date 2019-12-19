@@ -4,6 +4,7 @@ import LayoutExample from '../components/layout/demo/layoutExample';
 import ExampleTest from '../components/icon/demo';
 import FormExample from '../components/form/demo/formExample';
 import ButtonExample from '../components/button/demo/buttonExample';
+import InputExample from '../components/input/demo/inputExample';
 
 interface MenusProp {
   path: string;
@@ -20,6 +21,11 @@ const menus: MenusProp[] = [
     path: '/button',
     name: '按钮',
     component: ButtonExample,
+  },
+  {
+    path: '/input',
+    name: '输入框',
+    component: InputExample,
   },
   {
     path: '/dialog',
