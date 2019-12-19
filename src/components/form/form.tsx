@@ -1,7 +1,8 @@
-import React, { ChangeEvent, FC, FormEventHandler, ReactElement } from 'react';
+import React, { ChangeEvent, cloneElement, FC, FormEventHandler, ReactElement } from 'react';
 import { IErrors } from './validator';
 import { fixedPrefixClasses } from '../../utils/helpers';
 import './form.scss';
+import Input from '../input/input';
 
 interface IFieldProps {
   name: string;
@@ -41,22 +42,28 @@ const Form: FC<IFormProps> = (props) => {
               {field.label}
             </td>
             <td className={fixSc('td')}>
-              <input
+              <Input
                 onChange={onInputChang.bind(null, field.name)}
                 type={field.input.type}
                 value={formData[field.name]}
               />
-              <div className={fixSc('error')}>
+              <div className={fixSc('errors')}>
                 {errors[field.name]}
               </div>
             </td>
           </tr>
         ))}
+        <tr className={fixSc('tr')}>
+          <td className={fixSc('td')}/>
+          <td className={fixSc('td')}>
+            {props.buttons.map((button) => cloneElement(button, {
+              className: fixSc
+              ('button'),
+            }))}
+          </td>
+        </tr>
         </tbody>
       </table>
-      <footer className={fixSc('footer')}>
-        {props.buttons}
-      </footer>
     </form>
   );
 };

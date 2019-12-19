@@ -23,7 +23,7 @@ const FormExample = () => {
   ];
   const buttons = [
     // button type 的默认值是 submit: @see:https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button
-    <Button key={1}>提交</Button>,
+    <Button styleType="primary" key={1}>提交</Button>,
     <Button key={2} type="button">返回</Button>,
   ];
   const onSubmit = () => {
