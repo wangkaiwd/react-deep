@@ -6,7 +6,22 @@
   }
   &-tr:last-child &-td {
     padding-bottom: 0;
+    vertical-align: top;
   }
+  // 俩端对齐实现会有一些问题：1. 写死高度 2. 写死宽度
+  //&-label {
+  //  display: inline-block;
+  //  text-align: justify;
+  //  width: 4em;
+  //  height: 22px;
+  //  &:after {
+  //    content: '.';
+  //    display: inline-block;
+  //    width: 100%;
+  //    overflow: hidden;
+  //    height: 0;
+  //  }
+  //}
 
   // 相邻兄弟选择器
   &-td + &-td {

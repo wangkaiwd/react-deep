@@ -47,7 +47,7 @@ const Form: FC<IFormProps> = (props) => {
         {props.fields.map((field) => (
           <tr className={fixSc('tr')} key={field.name}>
             <td className={fixSc('td')}>
-              {field.label}
+              <span className={fixSc('label')}>{field.label}</span>
             </td>
             <td className={fixSc('td')}>
               <Input
