@@ -31,16 +31,16 @@ const validator = (formData: IFormValues, constraints: IConstraintsProps, callba
     const constraint = constraints[key];
     constraint.map((item) => {
       if (item.required && isEmpty(formData[key]) && item.message) {
-        addErrors(key, Promise.resolve(item.message));
+        addErrors(key, Promise.reject(item.message));
       }
       if (item.maxLength && formData[key].length > item.maxLength && item.message) {
-        addErrors(key, Promise.resolve(item.message));
+        addErrors(key, Promise.reject(item.message));
       }
       if (item.minLength && formData[key].length < item.minLength && item.message) {
-        addErrors(key, Promise.resolve(item.message));
+        addErrors(key, Promise.reject(item.message));
       }
       if (item.pattern && !item.pattern.test(formData[key]) && item.message) {
-        addErrors(key, Promise.resolve(item.message));
+        addErrors(key, Promise.reject(item.message));
       }
       if (item.validator) {
         addErrors(key, item.validator());
