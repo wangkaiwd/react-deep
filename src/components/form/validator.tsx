@@ -47,6 +47,15 @@ const validator = (formData: IFormValues, constraints: IConstraintsProps, callba
       }
     });
   });
+  // console.log('validator', errors);
+  // [[u,p1],[u,p2],[p,p1],[p,p2]]
+  const array: [string, Promise<string>][] = [];
+  Object.keys(errors).map((key) => {
+    for (let i = 0; i < errors[key].length; i++) {
+      const error = errors[key][i];
+      array.push([key, error]);
+    }
+  });
 };
 
 export default validator;
