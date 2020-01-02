@@ -6,7 +6,7 @@ interface IConstraintItem {
   maxLength?: number;
   minLength?: number;
   pattern?: RegExp;
-  validator?: () => Promise<string>;
+  validator?: (value: string) => Promise<string>;
 }
 interface IConstraintsProps {
   [key: string]: IConstraintItem[];
@@ -30,20 +30,21 @@ const validator = (formData: IFormValues, constraints: IConstraintsProps, callba
   Object.keys(formData).map((key) => {
     const constraint = constraints[key];
     constraint.map((item) => {
-      if (item.required && isEmpty(formData[key]) && item.message) {
+      const value = formData[key];
+      if (item.required && isEmpty(value) && item.message) {
         addErrors(key, Promise.reject(item.message));
       }
-      if (item.maxLength && formData[key].length > item.maxLength && item.message) {
+      if (item.maxLength && value.length > item.maxLength && item.message) {
         addErrors(key, Promise.reject(item.message));
       }
-      if (item.minLength && formData[key].length < item.minLength && item.message) {
+      if (item.minLength && value.length < item.minLength && item.message) {
         addErrors(key, Promise.reject(item.message));
       }
-      if (item.pattern && !item.pattern.test(formData[key]) && item.message) {
+      if (item.pattern && !item.pattern.test(value) && item.message) {
         addErrors(key, Promise.reject(item.message));
       }
       if (item.validator) {
-        addErrors(key, item.validator());
+        addErrors(key, item.validator(value));
       }
     });
   });

@@ -3,14 +3,15 @@ import Form, { IFormValues } from '../form';
 import validator, { IErrors } from '../validator';
 import Button from '../../button/button';
 
-const checkUser = () => {
+const usernames = ['测试名字001', '测试名字002', '测试名字003'];
+const checkUser = (username: string) => {
   return new Promise<string>((resolve, reject) => {
     setTimeout(() => {
-      // if (Math.random() > 0.5) {
-      //   resolve('成功');
-      // } else {
-      reject('用户名已存在');
-      // }
+      if (usernames.indexOf(username) !== -1) {
+        reject('用户名已存在');
+      } else {
+        resolve('成功');
+      }
     }, 3000);
   });
 };
@@ -48,10 +49,13 @@ const FormExample = () => {
     <Button styleType="primary" key={1}>提交</Button>,
     <Button key={2} type="button">返回</Button>,
   ];
+  // 这个value值是在调用校验函数时传入的
+  // 假如不传，该如何获取？
+  // 点击提交按钮时，通过password,来从formData中进行查找：formData['password']
+  const validatorUser = (value: string) => {
+    return checkUser(value);
+  };
   const onSubmit = () => {
-    const validatorUser = () => {
-      return checkUser();
-    };
     const constraints = {
       username: [ // 错误提示是有顺序的，所以通过数组来做处理
         { required: true, message: '用户名必填' },
