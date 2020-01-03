@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Form, { IFormValues } from '../form';
-import validator, { IErrors } from '../validator';
+import validator, { IFinalErrors } from '../validator';
 import Button from '../../button/button';
 
 const usernames = ['测试名字001', '测试名字002', '测试名字003'];
@@ -31,7 +31,7 @@ const FormExample = () => {
     username: '用户名',
     password: '密码',
   });
-  const [errors, setErrors] = useState<IErrors>({});
+  const [errors, setErrors] = useState<IFinalErrors>({});
   const fields = [
     {
       name: 'username',
@@ -68,12 +68,10 @@ const FormExample = () => {
         { validator: validatorPassword },
       ],
     };
-    // const errors = validator(formData, constraints);
-    // setErrors(errors);
-    // console.log('example errors', errors);
     validator(formData, constraints, (errors) => {
       // 要在所有的异步请求处理完成后调用回调函数来获取结果
       console.log('callback', errors);
+      setErrors(errors);
     });
   };
   const onChange = (newFormData: IFormValues) => {
