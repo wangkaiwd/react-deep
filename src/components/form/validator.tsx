@@ -57,6 +57,8 @@ const validator = (formData: IFormValues, constraints: IConstraintsProps, callba
       array.push([key, error]);
     }
   });
+  // promise.all 处理所有Promise,每个Promise在执行成功后会返回所有成功promise resolve时返回的参数组成的数组
+  
 };
 
 export default validator;
