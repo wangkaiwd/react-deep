@@ -21,6 +21,8 @@ export interface IFinalErrors {
 const isEmpty = (value: any) => {
   return value === undefined || value === null || value === '';
 };
+
+// todo: 优化代码
 const zip = (values: [string, any][]) => {
   const result: { [key: string]: any[] } = {};
   values.map((item) => {
@@ -65,6 +67,7 @@ const validator = (formData: IFormValues, constraints: IConstraintsProps, callba
     });
   });
   const promises: Promise<[string, string | undefined]>[] = [];
+  // todo:提取flat函数
   Object.keys(errors).map((key) => {
     errors[key].map((error) => {
       promises.push(error.then(
