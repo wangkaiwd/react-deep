@@ -1,5 +1,5 @@
 import React, { ChangeEvent, cloneElement, FC, FormEventHandler, ReactElement } from 'react';
-import { IErrors } from './validator';
+import { IFinalErrors } from './validator';
 import { fixedPrefixClasses } from '../../utils/helpers';
 import './form.scss';
 import Input from '../input/input';
@@ -18,7 +18,7 @@ interface IFormProps {
   buttons: ReactElement[];
   onSubmit: FormEventHandler<HTMLFormElement>;
   onChange: (newFormData: IFormValues) => void;
-  errors: IErrors;
+  errors: IFinalErrors;
   errorsDisplayMode?: 'first' | 'all';
 }
 const fixSc = fixedPrefixClasses('wui-form');
