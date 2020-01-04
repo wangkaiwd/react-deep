@@ -32,6 +32,19 @@ const zip = (values: [string, any][]) => {
   });
   return result;
 };
+
+const flatErrorsToPromises = (errors: IErrors) => {
+  const promises: Promise<[string, string | undefined]>[] = [];
+  Object.keys(errors).map((key) => {
+    errors[key].map((error) => {
+      promises.push(error.then(
+        (result) => [key, result],
+        (error: string) => [key, error],
+      ));
+    });
+  });
+  return promises;
+};
 const validator = (formData: IFormValues, constraints: IConstraintsProps, callback: (errors: IFinalErrors) => void) => {
   const errors: IErrors = {};
   const addErrors = (key: string, message: Promise<string | undefined>) => {
@@ -62,17 +75,7 @@ const validator = (formData: IFormValues, constraints: IConstraintsProps, callba
       }
     });
   });
-  const promises: Promise<[string, string | undefined]>[] = [];
-  // todo:提取flat函数
-  Object.keys(errors).map((key) => {
-    errors[key].map((error) => {
-      promises.push(error.then(
-        (result) => [key, result],
-        (error: string) => [key, error],
-      ));
-    });
-  });
-  Promise.all(promises).then((values) => {
+  Promise.all(flatErrorsToPromises(errors)).then((values) => {
     callback(zip(values));
   });
 };
