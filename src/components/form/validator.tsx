@@ -45,14 +45,15 @@ const flatErrorsToPromises = (errors: IErrors) => {
   });
   return promises;
 };
+export const hasError = (errors: IFinalErrors) => {
+  const hasErrorMessage = Object.keys(errors).some((key: string) => errors[key].length !== 0);
+  return Object(errors).length !== 0 && hasErrorMessage;
+};
 const validator = (formData: IFormValues, constraints: IConstraintsProps, callback: (errors: IFinalErrors) => void) => {
   const errors: IErrors = {};
   const addErrors = (key: string, message: Promise<string | undefined>) => {
-    if (errors[key]) {
-      errors[key].push(message);
-    } else {
-      errors[key] = [message];
-    }
+    errors[key] = errors[key] || [];
+    errors[key].push(message);
   };
   Object.keys(formData).map((key) => {
     const constraint = constraints[key];

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Form, { IFormValues } from '../form';
-import validator, { IFinalErrors } from '../validator';
+import validator, { hasError, IFinalErrors } from '../validator';
 import Button from '../../button/button';
 
 const usernames = ['测试名字001', '测试名字002', '测试名字003'];
@@ -10,20 +10,10 @@ const checkUser = (username: string) => {
       if (usernames.indexOf(username) !== -1) {
         reject('用户名已存在');
       } else {
-        resolve('成功');
+        // resolve undefined表示成功
+        resolve();
       }
     }, 3000);
-  });
-};
-const validatorPassword = () => {
-  return new Promise<string>((resolve, reject) => {
-    setTimeout(() => {
-      // if (Math.random() > 0.5) {
-      //   resolve('成功');
-      // } else {
-      reject('密码不符合要求');
-      // }
-    }, 5000);
   });
 };
 const FormExample = () => {
@@ -65,13 +55,17 @@ const FormExample = () => {
       ],
       password: [
         { pattern: /[a-z]/, message: '格式不匹配' },
-        { validator: validatorPassword },
       ],
     };
     validator(formData, constraints, (errors) => {
       // 要在所有的异步请求处理完成后调用回调函数来获取结果
-      console.log('callback', errors);
-      setErrors(errors);
+      if (hasError(errors)) {
+        console.log('callback', errors);
+        setErrors(errors);
+      } else {
+        alert('提交成功!');
+        setErrors({});
+      }
     });
   };
   const onChange = (newFormData: IFormValues) => {
@@ -84,6 +78,7 @@ const FormExample = () => {
       formData={formData}
       errors={errors}
       buttons={buttons}
+      errorsDisplayMode="all"
       fields={fields}
     />
   );
