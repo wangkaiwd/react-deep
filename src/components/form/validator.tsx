@@ -25,14 +25,11 @@ const isEmpty = (value: any) => {
 // todo: 优化代码
 const zip = (values: [string, any][]) => {
   const result: { [key: string]: any[] } = {};
-  values.map((item) => {
-    const key = item[0], value = item[1];
+  // 使用函数参数与数组的解构赋值结合使用
+  values.map(([key, value]) => {
     if (value === undefined) {return;}
-    if (key in result) {
-      result[key].push(value);
-    } else {
-      result[key] = [value];
-    }
+    result[key] = result[key] || []; // 不存在默认为数组，然后都可以使用push方法
+    result[key].push(value);
   });
   return result;
 };
