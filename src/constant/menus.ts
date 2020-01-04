@@ -5,6 +5,7 @@ import ExampleTest from '../components/icon/demo';
 import FormExample from '../components/form/demo/formExample';
 import ButtonExample from '../components/button/demo/buttonExample';
 import InputExample from '../components/input/demo/inputExample';
+import ScrollExample from '../components/scroll/demo/scrollExample';
 
 interface MenusProp {
   path: string;
@@ -41,6 +42,11 @@ const menus: MenusProp[] = [
     path: '/form',
     name: '表单',
     component: FormExample,
+  },
+  {
+    path: '/scroll',
+    name: '滚动条',
+    component: ScrollExample,
   },
 ];
 
