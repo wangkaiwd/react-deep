@@ -22,7 +22,6 @@ const isEmpty = (value: any) => {
   return value === undefined || value === null || value === '';
 };
 
-// todo: 优化代码
 const zip = (values: [string, any][]) => {
   const result: { [key: string]: any[] } = {};
   // 使用函数参数与数组的解构赋值结合使用

@@ -11,6 +11,41 @@
 2. 将错误展示到`form`表单项中
 
 
+#### 异步校验
+
+#### 代码优化
+##### `zip`  
+优化前：
+```typescript
+const zip = (values: [string, any][]) => {
+  const result: { [key: string]: any[] } = {};
+  values.map((item) => {
+    const key = item[0], value = item[1];
+    if (value === undefined) {return;}
+    if (key in result) {
+      result[key].push(value);
+    } else {
+      result[key] = [value];
+    }
+  });
+  return result;
+};
+```
+优化后(移除了多余的赋值以及`if else`语法)：
+```typescript
+const zip = (values: [string, any][]) => {
+  const result: { [key: string]: any[] } = {};
+  // 使用函数参数与数组的解构赋值结合使用
+  values.map(([key, value]) => {
+    if (value === undefined) {return;}
+    result[key] = result[key] || []; // 不存在默认为数组，然后都可以使用push方法
+    result[key].push(value);
+  });
+  return result;
+};
+```
+
+
 ### 问题
 1. 如何为表单中某个单独项设置样式？
 2. 如何兼容各种表单项(`select`,`checkbox`)？
