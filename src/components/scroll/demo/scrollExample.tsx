@@ -4,7 +4,7 @@ import Scroll from '../scroll';
 const ScrollExample = () => {
   return (
     <div>
-      <Scroll style={{ height: '400px', border: '2px solid red' }}>
+      <Scroll style={{ height: '400px', border: '1px solid red' }}>
         <p>内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1容1内容1内容1内容</p><p>内容2</p><p>内容3</p><p>内容4</p>
         <p>内容5</p><p>内容6</p><p>内容7</p>
         <p>内容8</p><p>内容9</p><p>内容10</p><p>内容11</p>

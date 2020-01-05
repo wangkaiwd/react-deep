@@ -13,15 +13,13 @@ const Scroll: FC<IScrollProps> = ({ className, children, ...rest }) => {
   const [barTop, setBarTop] = useState(0);
   const innerRef = useRef<HTMLDivElement>(null!);
   useEffect(() => {
-    const scrollTop = innerRef.current.scrollTop;
-    const scrollHeight = innerRef.current.scrollHeight;
+    const { scrollTop, scrollHeight } = innerRef.current;
     const { height } = innerRef.current.getBoundingClientRect();
     setBarHeight(height * height / scrollHeight);
     setBarTop(scrollTop * height / scrollHeight);
   }, []);
   const onScroll: UIEventHandler<HTMLDivElement> = (e) => {
-    const scrollTop = innerRef.current.scrollTop;
-    const scrollHeight = innerRef.current.scrollHeight;
+    const { scrollTop, scrollHeight } = innerRef.current;
     const { height } = innerRef.current.getBoundingClientRect();
     setBarTop(scrollTop * height / scrollHeight);
   };
@@ -36,7 +34,7 @@ const Scroll: FC<IScrollProps> = ({ className, children, ...rest }) => {
       </div>
       <div className={fixSc('track')}>
         <div
-          style={{ height: barHeight, top: barTop }}
+          style={{ height: barHeight, transform: `translateY(${barTop}px)` }}
           className={fixSc('bar')}
         />
       </div>
