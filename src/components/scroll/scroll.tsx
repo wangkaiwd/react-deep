@@ -13,7 +13,7 @@ const Scroll: FC<IScrollProps> = ({ className, children, ...rest }) => {
   const [barTop, setBarTop] = useState(0);
   const innerRef = useRef<HTMLDivElement>(null!);
   const barRef = useRef<HTMLDivElement>(null!);
-  const clickY = useRef(0);
+  const clickYRef = useRef(0);
   useEffect(() => {
     const { scrollTop, scrollHeight } = innerRef.current;
     const { height } = innerRef.current.getBoundingClientRect();
@@ -29,7 +29,7 @@ const Scroll: FC<IScrollProps> = ({ className, children, ...rest }) => {
     const { clientY } = e;
     const { top: innerTop, height } = innerRef.current.getBoundingClientRect();
     const scrollHeight = innerRef.current.scrollHeight;
-    const barTop = clientY - innerTop - clickY.current;
+    const barTop = clientY - innerTop - clickYRef.current;
     const maxTop = height - barRef.current.getBoundingClientRect().height;
     if (barTop > 0 && barTop < maxTop) {
       innerRef.current.scrollTop = barTop * scrollHeight / height;
@@ -40,7 +40,7 @@ const Scroll: FC<IScrollProps> = ({ className, children, ...rest }) => {
   const onMouseDown: MouseEventHandler<HTMLDivElement> = (e) => {
     const { top } = e.currentTarget.getBoundingClientRect();
     const { clientY } = e;
-    clickY.current = clientY - top;
+    clickYRef.current = clientY - top;
     document.body.addEventListener('mousemove', onMouseMove);
   };
   const onMouseUp = (e: MouseEvent) => {
