@@ -11,6 +11,7 @@ const sc = classes;
 const Scroll: FC<IScrollProps> = ({ className, children, ...rest }) => {
   const [barHeight, setBarHeight] = useState(0);
   const [barTop, setBarTop] = useState(0);
+  const [barVisible, setBarVisible] = useState(false);
   const innerRef = useRef<HTMLDivElement>(null!);
   const barRef = useRef<HTMLDivElement>(null!);
   const clickYRef = useRef(0);
@@ -26,12 +27,14 @@ const Scroll: FC<IScrollProps> = ({ className, children, ...rest }) => {
     setBarTop(scrollTop * height / scrollHeight);
   };
   const onMouseMove = (e: MouseEvent) => {
+    // todo: 这里的barVisible为什么一直都是true
+    if (!barVisible) {return;}
     const { clientY } = e;
     const { top: innerTop, height } = innerRef.current.getBoundingClientRect();
-    const scrollHeight = innerRef.current.scrollHeight;
     const barTop = clientY - innerTop - clickYRef.current;
     const maxTop = height - barRef.current.getBoundingClientRect().height;
     if (barTop > 0 && barTop < maxTop) {
+      const scrollHeight = innerRef.current.scrollHeight;
       innerRef.current.scrollTop = barTop * scrollHeight / height;
       document.body.removeEventListener('mouseup', onMouseUp);
       document.body.addEventListener('mouseup', onMouseUp);
@@ -47,23 +50,38 @@ const Scroll: FC<IScrollProps> = ({ className, children, ...rest }) => {
     document.body.removeEventListener('mousemove', onMouseMove);
     document.body.removeEventListener('mouseup', onMouseUp);
   };
+  const onMouseEnter: MouseEventHandler<HTMLDivElement> = (e) => {
+    setBarVisible(true);
+  };
+  const onMouseLeave: MouseEventHandler<HTMLDivElement> = (e) => {
+    setBarVisible(false);
+  };
   return (
-    <div className={sc(fixSc(), className)} {...rest}>
+    <div
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      className={sc(fixSc(), className)}
+      {...rest}
+    >
       <div
         ref={innerRef}
         className={fixSc('inner')}
         onScroll={onScroll}
       >
+        {JSON.stringify(barVisible)}
         {children}
       </div>
-      <div className={fixSc('track')}>
-        <div
-          ref={barRef}
-          onMouseDown={onMouseDown}
-          style={{ height: barHeight, transform: `translateY(${barTop}px)` }}
-          className={fixSc('bar')}
-        />
-      </div>
+      {
+        barVisible &&
+        <div className={fixSc('track')}>
+          <div
+            ref={barRef}
+            onMouseDown={onMouseDown}
+            style={{ height: barHeight, transform: `translateY(${barTop}px)` }}
+            className={fixSc('bar')}
+          />
+        </div>
+      }
     </div>
   );
 };
