@@ -3,7 +3,7 @@ const getScrollBarWidth = () => {
   div.style.width = '100px';
   div.style.height = '100px';
   div.style.position = 'absolute';
-  div.style.top = '-9999px';
+  div.style.top = '-9999px'; // 把div放到屏幕之外，防止影响用户操作
   div.style.left = '-9999px';
   div.style.overflow = 'scroll';
   document.body.appendChild(div);

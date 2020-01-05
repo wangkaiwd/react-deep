@@ -4,3 +4,9 @@
 
 1. 使用`collapse all`折叠所有代码
 2. 通过`structure`来查看整体代码结构
+
+### 原生`DOM`方法复习
+1. `offsetHeight`
+2. `scrollTop`
+3. `scrollHeight`
+4. `getBoundingClientRect`
