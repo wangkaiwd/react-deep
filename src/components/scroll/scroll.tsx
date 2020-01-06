@@ -19,6 +19,7 @@ const Scroll: FC<IScrollProps> = ({ className, children, ...rest }) => {
     setBarHeight(height * height / scrollHeight);
     setBarTop(scrollTop * height / scrollHeight);
   }, []);
+  // todo: 滚动时出现滚动条，停止滚动滚动条消失
   const onScroll: UIEventHandler<HTMLDivElement> = (e) => {
     const { scrollTop, scrollHeight } = innerRef.current;
     const { height } = innerRef.current.getBoundingClientRect();
