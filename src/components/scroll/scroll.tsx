@@ -24,6 +24,9 @@ const Scroll: FC<IScrollProps> = ({ className, children, ...rest }) => {
     const { height } = innerRef.current.getBoundingClientRect();
     setBarTop(scrollTop * height / scrollHeight);
   };
+  const onSelectStart = (e: Event) => {
+    e.preventDefault();
+  };
   const onMouseMove = (e: MouseEvent) => {
     const { clientY } = e;
     const { top: innerTop, height } = innerRef.current.getBoundingClientRect();
@@ -40,10 +43,12 @@ const Scroll: FC<IScrollProps> = ({ className, children, ...rest }) => {
     clickYRef.current = clientY - top;
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
+    document.addEventListener('selectstart', onSelectStart);
   };
   const onMouseUp = (e: MouseEvent) => {
     document.removeEventListener('mousemove', onMouseMove);
     document.removeEventListener('mouseup', onMouseUp);
+    document.removeEventListener('selectstart', onSelectStart);
   };
   return (
     <div

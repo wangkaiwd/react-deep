@@ -65,3 +65,8 @@ const onMouseDown: MouseEventHandler<HTMLDivElement> = (e) => {
 
 大多数情况下使用方法1即可，要求较为严格时使用方法2
 
+### 禁止选择文本
+* [disable text select](https://stackoverflow.com/questions/16805684/javascript-disable-text-select)
+
+1. `selectstart`: 用户开始选择文本时触发
+2. [Browser default actions](https://javascript.info/default-browser-action)
