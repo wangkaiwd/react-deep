@@ -12,6 +12,10 @@
 3. `scrollHeight`
 4. `getBoundingClientRect`
 
+阅读资料：
+* [coordinates](https://javascript.info/coordinates)
+* [Determining the dimensions of elements](https://developer.mozilla.org/zh-CN/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
+
 鼠标事件对象：
 1. `pageX`
 2. `clientX`
