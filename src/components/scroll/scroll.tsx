@@ -32,8 +32,6 @@ const Scroll: FC<IScrollProps> = ({ className, children, ...rest }) => {
     if (barTop > 0 && barTop < maxTop) {
       const scrollHeight = innerRef.current.scrollHeight;
       innerRef.current.scrollTop = barTop * scrollHeight / height;
-      document.removeEventListener('mouseup', onMouseUp);
-      document.addEventListener('mouseup', onMouseUp);
     }
   };
   const onMouseDown: MouseEventHandler<HTMLDivElement> = (e) => {
@@ -41,6 +39,7 @@ const Scroll: FC<IScrollProps> = ({ className, children, ...rest }) => {
     const { clientY } = e;
     clickYRef.current = clientY - top;
     document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
   };
   const onMouseUp = (e: MouseEvent) => {
     document.removeEventListener('mousemove', onMouseMove);

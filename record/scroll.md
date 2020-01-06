@@ -35,8 +35,8 @@ const onMouseMove = (e: MouseEvent) => {
   const maxTop = height - barRef.current.getBoundingClientRect().height;
   if (barTop > 0 && barTop < maxTop) {
     innerRef.current.scrollTop = barTop * scrollHeight / height;
-    document.body.removeEventListener('mouseup', onMouseUp);
-    document.body.addEventListener('mouseup', onMouseUp);
+    document.removeEventListener('mouseup', onMouseUp);
+    document.addEventListener('mouseup', onMouseUp);
   }
 };
 
@@ -44,6 +44,24 @@ const onMouseDown: MouseEventHandler<HTMLDivElement> = (e) => {
   const { top } = e.currentTarget.getBoundingClientRect();
   const { clientY } = e;
   clickYRef.current = clientY - top;
-  document.body.addEventListener('mousemove', onMouseMove);
+  document.addEventListener('mousemove', onMouseMove);
 };
 ```
+
+### 事件绑定
+1. 在组件加载完成后，为对应的元素绑定事件，在组件销毁的时候移除绑定
+    ```text
+    使用`useEffect`在`DOM`加载完成后绑定`mousemove`和`mouseup`事件
+    ```
+2. 在需要的时候绑定事件，不需要的时候移除绑定
+    ```text
+    1.在鼠标按下的时候，在满足对应条件的时候绑定鼠标移动事件和鼠标弹起事件
+    2.在鼠标弹起的时候，移除鼠标弹起事件和鼠标移动事件
+    ``` 
+
+方法2的优点：只在需要的时候才进行事件绑定，防止多余的事件绑定
+
+方法1的优化：实现上相对简单一些，但需要一个全局变量来进行控制什么时候触发`move`事件
+
+大多数情况下使用方法1即可，要求较为严格时使用方法2
+
