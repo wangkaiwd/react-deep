@@ -10,20 +10,29 @@ const sc = classes;
 const Scroll: FC<IScrollProps> = ({ className, children, ...rest }) => {
   const [barHeight, setBarHeight] = useState(0);
   const [barTop, setBarTop] = useState(0);
+  const [barVisible, setBarVisible] = useState(false);
   const innerRef = useRef<HTMLDivElement>(null!);
   const barRef = useRef<HTMLDivElement>(null!);
   const clickYRef = useRef(0);
+  const timerRef = useRef<number | null>(null);
   useEffect(() => {
     const { scrollTop, scrollHeight } = innerRef.current;
     const { height } = innerRef.current.getBoundingClientRect();
     setBarHeight(height * height / scrollHeight);
     setBarTop(scrollTop * height / scrollHeight);
   }, []);
-  // todo: 滚动时出现滚动条，停止滚动滚动条消失
   const onScroll: UIEventHandler<HTMLDivElement> = (e) => {
     const { scrollTop, scrollHeight } = innerRef.current;
     const { height } = innerRef.current.getBoundingClientRect();
     setBarTop(scrollTop * height / scrollHeight);
+    setBarVisible(true);
+    // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/31065#issuecomment-446425911
+    if (timerRef.current) {
+      window.clearTimeout(timerRef.current);
+    }
+    timerRef.current = window.setTimeout(() => {
+      setBarVisible(false);
+    }, 1000);
   };
   const onSelectStart = (e: Event) => {
     e.preventDefault();
@@ -63,14 +72,17 @@ const Scroll: FC<IScrollProps> = ({ className, children, ...rest }) => {
       >
         {children}
       </div>
-      <div className={fixSc('track')}>
-        <div
-          ref={barRef}
-          onMouseDown={onMouseDown}
-          style={{ height: barHeight, transform: `translateY(${barTop}px)` }}
-          className={fixSc('bar')}
-        />
-      </div>
+      {
+        barVisible &&
+        <div className={fixSc('track')}>
+          <div
+            ref={barRef}
+            onMouseDown={onMouseDown}
+            style={{ height: barHeight, transform: `translateY(${barTop}px)` }}
+            className={fixSc('bar')}
+          />
+        </div>
+      }
     </div>
   );
 };

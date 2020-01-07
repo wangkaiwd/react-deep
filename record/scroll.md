@@ -70,3 +70,16 @@ const onMouseDown: MouseEventHandler<HTMLDivElement> = (e) => {
 
 1. `selectstart`: 用户开始选择文本时触发
 2. [Browser default actions](https://javascript.info/default-browser-action)
+
+### 如何使用定时器
+
+直接使用`setTimeout`类型是使用`NodeJS`中的类型，所以返回值是`NodeJS.Timeout`,只需要明确表明我们是使用`window`的`setTimeout`的类型即可：
+```typescript
+timerRef.current = window.setTimeout(() => {
+  setBarVisible(false);
+}, 1000);
+```
+
+思路：当返回值类型报错的时候，需要通过`setTimeout`的类型声明(`command + 单击`)去查看其返回值类型,发现是`NodeJS.Timeout`，需要将其改为使用`window.setTimeout`的返回值类型(这一步当时并没有想到)。
+
+当`useRef`对应的类型没有设置`|null`或者`useRef(null!)`的时候会提示为只读类型：[RefObject.current should no longer be readonly](https://github.com/DefinitelyTyped/DefinitelyTyped/issues/31065#issuecomment-446425911)
