@@ -1,5 +1,7 @@
 $default-color: #e0e1e2;
 .wui-button {
+  display: inline-flex;
+  align-items: center;
   font-size: 1em;
   padding: 6px 18px;
   line-height: 22px;
@@ -29,5 +31,12 @@ $default-color: #e0e1e2;
     &:focus, &:hover {
       background-color: #27292a;
     }
+  }
+  &-icon-left {
+    margin-right: 8px;
+  }
+  &-icon-right {
+    margin-left: 8px;
+    order: 1;
   }
 }
