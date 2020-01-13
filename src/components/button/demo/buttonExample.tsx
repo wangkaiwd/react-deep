@@ -16,6 +16,7 @@ const ButtonExample = () => {
         Secondary
       </Button>
       <Button style={{ margin: '0 8px' }} icon="alipay" styleType="secondary">Secondary</Button>
+      <Button style={{ margin: '0 8px' }} styleType="primary" loading={true}>Primary</Button>
     </div>
   );
 };

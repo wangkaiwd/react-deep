@@ -7,6 +7,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   styleType?: 'default' | 'primary' | 'secondary';
   icon?: string;
   iconPosition?: 'left' | 'right';
+  loading?: boolean;
 }
 const fixSc = fixedPrefixClasses('wui-button');
 const sc = classes;
@@ -16,16 +17,24 @@ const Button: React.FC<Props> = ({
                                    styleType = 'default',
                                    iconPosition = 'left',
                                    icon,
+                                   disabled,
+                                   loading,
                                    ...rest
                                  }) => {
+  const isDisabled = disabled || loading;
   return (
     <button
-      className={sc(fixSc('', styleType), className)}
+      className={sc(fixSc('', styleType, { disabled: isDisabled }), className)}
+      disabled={isDisabled}
       {...rest}
     >
       {
-        icon &&
-        <Icon className={fixSc(`icon-${iconPosition}`)} name={icon}/>
+        icon && !loading &&
+        < Icon className={fixSc(`icon-${iconPosition}`)} name={icon}/>
+      }
+      {
+        loading &&
+        <Icon name="spin" className={fixSc(`icon-${iconPosition}`, 'spin')}/>
       }
       {children}
     </button>
