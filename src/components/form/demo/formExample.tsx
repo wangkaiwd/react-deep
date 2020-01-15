@@ -36,7 +36,7 @@ const FormExample = () => {
   ];
   const buttons = [
     // button type 的默认值是 submit: @see:https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button
-    <Button styleType="primary" key={1}>提交</Button>,
+    <Button level="primary" key={1}>提交</Button>,
     <Button key={2} type="button">返回</Button>,
   ];
   // 这个value值是在调用校验函数时传入的

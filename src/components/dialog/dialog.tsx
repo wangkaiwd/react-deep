@@ -1,7 +1,7 @@
 import React, { MouseEventHandler, ReactElement, ReactNode } from 'react';
 import './dialog.scss';
 import { Icon } from '../../index';
-import ReactDOM, { createPortal, unmountComponentAtNode } from 'react-dom';
+import ReactDOM, { createPortal } from 'react-dom';
 import { classes, fixedPrefixClasses } from '../../utils/helpers';
 
 const fixSc = fixedPrefixClasses('wui-dialog');

@@ -4,7 +4,7 @@ import { classes, fixedPrefixClasses } from '../../utils/helpers';
 import Icon from '../icon/icon';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  styleType?: 'default' | 'primary' | 'secondary';
+  level?: 'default' | 'primary' | 'secondary';
   icon?: string;
   iconPosition?: 'left' | 'right';
   loading?: boolean;
@@ -14,7 +14,7 @@ const sc = classes;
 const Button: React.FC<Props> = ({
                                    children,
                                    className,
-                                   styleType = 'default',
+                                   level = 'default',
                                    iconPosition = 'left',
                                    icon,
                                    disabled,
@@ -24,7 +24,7 @@ const Button: React.FC<Props> = ({
   const isDisabled = disabled || loading;
   return (
     <button
-      className={sc(fixSc('', styleType, { disabled: isDisabled }), className)}
+      className={sc(fixSc('', level, { disabled: isDisabled }), className)}
       disabled={isDisabled}
       {...rest}
     >
