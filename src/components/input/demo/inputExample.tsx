@@ -6,7 +6,8 @@ const InputExample = () => {
   return (
     <div>
       <Input placeholder="Basic usage"/>
-      <Button>Button</Button>
+      <Button>Button</Button><br/>
+      <Input prefix="alipay" placeholder="Basic usage"/>
     </div>
   );
 };
