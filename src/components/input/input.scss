@@ -20,6 +20,8 @@
         color: #9a9a9a;
       }
     }
+    // 只有将icon放到input后面才能通过相邻兄弟选择器(sibling adjacent combinator)选到
+    // 通过通用兄弟选择器(general sibling combinator)也可以做到
     &:focus + .wui-input-prefix-icon {
       color: rgba(0, 0, 0, .87);
     }
