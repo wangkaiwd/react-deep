@@ -12,3 +12,7 @@
 * [effect update](https://codesandbox.io/s/lyx20m1ol)
 * [class update 1](https://codesandbox.io/s/kkymzwjqz3)
 * [class update 2](https://codesandbox.io/s/w7vjo07055)
+
+#### `effect`读取最新值
+* 通过`refs`读取`effect`的回调函数里最新的值，而不是捕获的值(每次重新渲染对应的重新生成值)
+* [effect 中的清理](https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/#%E9%82%A3effect%E4%B8%AD%E7%9A%84%E6%B8%85%E7%90%86%E5%8F%88%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%E5%91%A2%EF%BC%9F):清除时的执行过程？
