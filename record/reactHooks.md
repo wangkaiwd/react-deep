@@ -20,3 +20,10 @@
    * 将`count`作为依赖项传入
    * `setCount((count) => count+1)`不再读取渲染中的`count`值，而是读取回调中传来的，这样可以移除依赖
 * 调用一个新的`effect`之前会对前一个`effect`进行清理，而在`effect`被清理的时候，会执行`effect`传入的回调中返回的函数
+
+#### `useReducer`
+* 什么时候使用`useReducer`
+
+
+#### 记录
+* `bookmarks`: [https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/#%E6%8A%8A%E5%87%BD%E6%95%B0%E7%A7%BB%E5%88%B0effects%E9%87%8C]
