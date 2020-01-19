@@ -37,5 +37,11 @@
 * 什么时候使用`useReducer`
 
 
-#### 记录
+#### 引用资料
+* [How to fetch data with React Hooks](https://www.robinwieruch.de/react-hooks-fetch-data)
+* [How Are Function Components Different from Classes](https://overreacted.io/how-are-function-components-different-from-classes/)
+* [https://overreacted.io/react-as-a-ui-runtime/](https://overreacted.io/react-as-a-ui-runtime/)
+* [Why Do React Hooks Rely on Call Order](https://overreacted.io/why-do-hooks-rely-on-call-order/)
+* [JavaScript Closures: setTimeout Inside a For Loop](https://wsvincent.com/javascript-closure-settimeout-for-loop/)
+* [This benchmark is indeed flawed](https://medium.com/@dan_abramov/this-benchmark-is-indeed-flawed-c3d6b5b6f97f)
 
