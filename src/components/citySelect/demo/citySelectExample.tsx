@@ -6,7 +6,7 @@ const CitySelectExample = () => {
   return (
     <div>
       <div><span>当前城市:</span><span>{currentCity}</span></div>
-      <CitySelect/>
+      <CitySelect currentCity={currentCity}/>
     </div>
   );
 };
