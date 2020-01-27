@@ -7,12 +7,14 @@ import ButtonExample from '../components/button/demo/buttonExample';
 import InputExample from '../components/input/demo/inputExample';
 import ScrollExample from '../components/scroll/demo/scrollExample';
 import MenuExample from '../components/menu/demo/menuExample';
+import CitySelectExample from '../components/citySelect/demo/citySelectExample';
 
 interface MenusProp {
   path: string;
   component: React.FunctionComponent;
   name: string;
 }
+
 const menus: MenusProp[] = [
   {
     path: '/icon',
@@ -53,6 +55,11 @@ const menus: MenusProp[] = [
     path: '/menu',
     name: '导航菜单',
     component: MenuExample,
+  },
+  {
+    path: '/citySelect',
+    name: '城市选择',
+    component: CitySelectExample,
   },
 ];
 
