@@ -30,6 +30,20 @@
   &-allCity {
     padding: 0 10px;
   }
+  &-cities {
+    background-color: #fff;
+    margin: 10px 0;
+  }
+  &-item {
+  }
+  &-item-letter {
+    color: #B7B7B7;
+    font-size: 40px;
+    float: left;
+  }
+  &-item-city {
+    float: left;
+  }
   &-letters {
     background-color: #fff;
     display: flex;

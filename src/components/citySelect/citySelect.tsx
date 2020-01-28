@@ -67,8 +67,17 @@ const CitySelect: FC<IProps> = (props) => {
           </div>
           <div className={fixSc('cities')}>
             {Object.keys(cityMap).map((key) => (
-              <div className={'item'} key={key}>
-                {key}
+              <div className={fixSc('item')} key={key}>
+                <div className={fixSc('item-letter')}>
+                  {key}
+                </div>
+                {
+                  cityMap[key].map((item) => (
+                    <div className={fixSc('item-city')} key={item}>
+                      {item}
+                    </div>
+                  ))
+                }
               </div>
             ))}
           </div>
