@@ -6,9 +6,14 @@
   right: 0;
   bottom: 0;
   background-color: #f0efec;
+  &-container {
+    height: 100%;
+    overflow-y: auto;
+  }
   &-header {
     line-height: 40px;
     text-align: center;
+    background-color: #FE8C00;
   }
   &-location {
     background-color: #fff;
