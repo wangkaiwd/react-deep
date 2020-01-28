@@ -1,6 +1,7 @@
 interface AnyObject {
   [k: string]: any;
 }
+
 type ClassNames = (string | undefined | false | null | AnyObject)[];
 
 export const classes = (...names: ClassNames): string => {
@@ -9,8 +10,8 @@ export const classes = (...names: ClassNames): string => {
 
 export const fixedPrefixClasses = (prefix: string) => {
   return (...names: ClassNames) => {
-    if (names.length === 0) {return prefix;}
-    if (names[0] === '' && names.length > 0) {
+    if (names.length === 0 || (names[0] === '' && names.length === 1)) {return prefix;}
+    if (names[0] === '' && names.length > 1) {
       const classesString = makeClasses(names, prefix);
       return `${prefix} ${classesString}`;
     }

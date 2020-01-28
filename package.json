@@ -8,12 +8,12 @@
   ],
   "types": "./dist/typings/src/index.d.ts",
   "scripts": {
-    "start": "cross-env webpack-dev-server --env.NODE_ENV=development --config config/webpack.dev.ts",
     "build:doc": "cross-env webpack --env.NODE_ENV=document --config config/webpack.doc.ts",
     "build:pro": "cross-env webpack --env.NODE_ENV=production --config config/webpack.pro.ts",
-    "test": "jest",
     "ci": "cross-env JEST_JUNIT_OUTPUT_NAME=./test-results/jest/results.xml jest --config jest.config.ci.js",
-    "deploy": "sh ./deploy.sh"
+    "deploy": "sh ./deploy.sh",
+    "start": "cross-env webpack-dev-server --env.NODE_ENV=development --config config/webpack.dev.ts",
+    "test": "jest"
   },
   "repository": "git@github.com:wangkaiwd/react-deep.git",
   "author": "wangkaiwd <1162486176@qq.com>",

@@ -7,3 +7,4 @@
 * `Next/Previous Highlight error`: `option ]/[`
 * `Refactor this`: `command T`
 * `Inspect code`: `context menu`
+* `Nagvigate test`: `command shift t`
