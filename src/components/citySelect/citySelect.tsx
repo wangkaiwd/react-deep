@@ -23,10 +23,23 @@ const processCities = () => {
     tempCities[firstLetter].push(item);
   });
   Object.keys(tempCities).sort().map((key) => {
+    const length = tempCities[key].length;
+    const remainder1 = length % 3;
+    const remainder2 = (length - 6) % 4;
     cityMap[key] = tempCities[key];
+    if (length <= 6 && remainder1 !== 0) {
+      for (let i = 0; i < (3 - remainder1); i++) {
+        cityMap[key].push('');
+      }
+    } else if (length > 6 && remainder2 !== 0) {
+      for (let i = 0; i < (4 - remainder2); i++) {
+        cityMap[key].push('');
+      }
+    }
   });
 };
 processCities();
+console.log('cityMap', cityMap);
 const fixSc = fixedPrefixClasses('wui-city-select');
 const sc = classes;
 const CitySelect: FC<IProps> = (props) => {
@@ -72,8 +85,8 @@ const CitySelect: FC<IProps> = (props) => {
                   {key}
                 </div>
                 {
-                  cityMap[key].map((item) => (
-                    <div className={fixSc('item-city')} key={item}>
+                  cityMap[key].map((item, index) => (
+                    <div className={fixSc('item-city')} key={index}>
                       {item}
                     </div>
                   ))
