@@ -9,5 +9,8 @@
 ### 知识点
 * [对象遍历顺序](https://es6.ruanyifeng.com/#docs/object#%E5%B1%9E%E6%80%A7%E7%9A%84%E5%8F%AF%E6%9E%9A%E4%B8%BE%E6%80%A7%E5%92%8C%E9%81%8D%E5%8E%86)
 * [Does JavaScript Guarantee Object Property Order?](https://stackoverflow.com/questions/5525795/does-javascript-guarantee-object-property-order)
+* [Clearfix: A Lesson in Web Development Evolution](https://css-tricks.com/clearfix-a-lesson-in-web-development-evolution/)
 
-浮动和清除浮动
+### css
+* 清除浮动
+* `border`会占据位置，必要时候可以使用`::after`,`::before`来实现`border`的效果
