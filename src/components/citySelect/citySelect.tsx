@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, useEffect, useState } from 'react';
+import React, { FC, HTMLAttributes, useEffect, useRef, useState } from 'react';
 import { classes, fixedPrefixClasses } from '../../utils/helpers';
 import './citySelect.scss';
 import Icon from '../icon/icon';
@@ -39,11 +39,11 @@ const processCities = () => {
   });
 };
 processCities();
-console.log('cityMap', cityMap);
 const fixSc = fixedPrefixClasses('wui-city-select');
 const sc = classes;
 const CitySelect: FC<IProps> = (props) => {
   const [location, setLocation] = useState('没有开启定位');
+  const containerRef = useRef<HTMLDivElement>(null!);
   useEffect(() => {
     const getCurrentCity = () => {
       const xhr = new XMLHttpRequest();
@@ -59,9 +59,19 @@ const CitySelect: FC<IProps> = (props) => {
     };
     getCurrentCity();
   }, []);
+
+  const moveToTop = (letter: string) => {
+    const letterElements = Array.from(document.querySelectorAll(`.${fixSc('item-letter')}`));
+    const container = containerRef.current;
+    const target = letterElements.find((item) => item.innerHTML === letter);
+    if (target) {
+      const { top } = target.getBoundingClientRect();
+      container.scrollTop = top;
+    }
+  };
   return (
     <div className={sc(fixSc(), props.className)}>
-      <div className={fixSc('container')}>
+      <div className={fixSc('container')} ref={containerRef}>
         <header className={fixSc('header')}>
           选择城市
         </header>
@@ -72,7 +82,7 @@ const CitySelect: FC<IProps> = (props) => {
           <div className={fixSc('letters')}>
             {
               LETTERS.map((letter) => (
-                <div className={fixSc('letter')} key={letter}>
+                <div className={fixSc('letter')} key={letter} onClick={() => moveToTop(letter)}>
                   {letter}
                 </div>
               ))
