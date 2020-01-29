@@ -11,9 +11,19 @@
     overflow-y: auto;
   }
   &-header {
+    position: relative;
     line-height: 40px;
     text-align: center;
     background-color: #FE8C00;
+  }
+  &-back {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 0 $space-xs;
   }
   &-location {
     background-color: #fff;

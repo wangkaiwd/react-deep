@@ -10,6 +10,7 @@ const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K',
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
   dataSource: string[];
+  onClose: (city: string) => void;
 }
 
 interface ICityMap {[key: string]: string[];}
@@ -69,10 +70,17 @@ const CitySelect: FC<IProps> = (props) => {
       container.scrollTop = top;
     }
   };
+
+  const onClickCity = (city: string) => {
+    setLocation(city);
+  };
   return (
     <div className={sc(fixSc(), props.className)}>
       <div className={fixSc('container')} ref={containerRef}>
         <header className={fixSc('header')}>
+          <span className={fixSc('back')} onClick={() => props.onClose(location)}>
+            <Icon name="back"/>
+          </span>
           选择城市
         </header>
         <div className={fixSc('location')}>
@@ -80,13 +88,11 @@ const CitySelect: FC<IProps> = (props) => {
         </div>
         <div className={fixSc('allCity')}>
           <div className={fixSc('letters')}>
-            {
-              LETTERS.map((letter) => (
-                <div className={fixSc('letter')} key={letter} onClick={() => moveToTop(letter)}>
-                  {letter}
-                </div>
-              ))
-            }
+            {LETTERS.map((letter) => (
+              <div className={fixSc('letter')} key={letter} onClick={() => moveToTop(letter)}>
+                {letter}
+              </div>
+            ))}
           </div>
           <div className={fixSc('cities')}>
             {Object.keys(cityMap).map((key) => (
@@ -94,13 +100,11 @@ const CitySelect: FC<IProps> = (props) => {
                 <div className={fixSc('item-letter')}>
                   {key}
                 </div>
-                {
-                  cityMap[key].map((item, index) => (
-                    <div className={fixSc('item-city')} key={index}>
-                      {item}
-                    </div>
-                  ))
-                }
+                {cityMap[key].map((item, index) => (
+                  <div className={fixSc('item-city')} key={index} onClick={() => onClickCity(item)}>
+                    {item}
+                  </div>
+                ))}
               </div>
             ))}
           </div>
