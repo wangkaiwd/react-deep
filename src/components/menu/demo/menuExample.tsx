@@ -4,9 +4,12 @@ import MenuItem from '../menuItem';
 import SubMenu from '../subMenu';
 
 const MenuExample = () => {
+  const onChangeSelectKey = (selectKey: string) => {
+    console.log('selectKey', selectKey);
+  };
   return (
     <div>
-      <Menu selectKey="c1">
+      <Menu onChangeSelectKey={onChangeSelectKey} selectKey="c1">
         <MenuItem name="c1">
           菜单1
         </MenuItem>

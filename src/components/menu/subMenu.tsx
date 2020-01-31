@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, useState } from 'react';
+import React, { FC, HTMLAttributes, ReactElement, useState } from 'react';
 import { classes, fixedPrefixClasses } from '../../utils/helpers';
 import './subMenu.scss';
 import Icon from '../icon/icon';
