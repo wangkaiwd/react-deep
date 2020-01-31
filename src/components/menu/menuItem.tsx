@@ -4,7 +4,7 @@ interface IProps extends HTMLAttributes<HTMLDivElement> {
 
 }
 
-const SubMenu: FC<IProps> = (props) => {
+const MenuItem: FC<IProps> = (props) => {
   return (
     <div>
       {props.children}
@@ -12,4 +12,4 @@ const SubMenu: FC<IProps> = (props) => {
   );
 };
 
-export default SubMenu;
+export default MenuItem;
