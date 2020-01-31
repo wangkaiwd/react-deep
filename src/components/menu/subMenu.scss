@@ -1,0 +1,13 @@
+.wui-sub-menu {
+  &-title {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  &-up {
+    transform: rotate(180deg);
+  }
+  .wui-menu-item {
+    padding-left: 8px;
+  }
+}

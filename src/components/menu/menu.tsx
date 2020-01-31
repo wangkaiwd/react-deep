@@ -1,8 +1,9 @@
 import React, { FC, HTMLAttributes } from 'react';
 import { classes, fixedPrefixClasses } from '../../utils/helpers';
+import './menu.scss';
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
-
+  selectKey: string;
 }
 
 const fixSc = fixedPrefixClasses('wui-menu');
