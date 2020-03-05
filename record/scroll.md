@@ -20,6 +20,7 @@
 1. `pageX`
 2. `clientX`
 3. [`target` vs `currentTarget`](https://stackblitz.com/edit/target-vs-current-target)
+   [discussion in stackoverflow](https://stackoverflow.com/questions/10086427/what-is-the-exact-difference-between-currenttarget-property-and-target-property)
 
 `TypeScript`的`addEventListener`监听事件时的类型与`react`绑定事件的类型不一致：[not assignable type for event listener](https://stackoverflow.com/questions/57515417/not-assignable-type-for-event-listener)  
 该问题的解决需要结合类型断言:  
