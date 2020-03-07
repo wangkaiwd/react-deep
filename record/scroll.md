@@ -48,8 +48,8 @@ const onMouseDown: MouseEventHandler<HTMLDivElement> = (e) => {
   document.addEventListener('mousemove', onMouseMove);
 };
 ```
-
-计算滚动条的宽度
+### 计算滚动条的宽度
+* 动态创建一个没有`border`但是有滚动条的`div`: offsetWidth - clientWidth,计算出滚动条
 
 ### 事件绑定
 1. 在组件加载完成后，为对应的元素绑定事件，在组件销毁的时候移除绑定
